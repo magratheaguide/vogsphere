@@ -2,7 +2,7 @@
 
 ## What is it?
 
-I wrote the original version of this tool for [The Breach](https://breached.jcink.net/index.php?showtopic=7&view=findpost&p=30). The version initially provided here has been generalized more thoroughly documented for easier use on other sites, and has since received additional updates.
+I (Daine) wrote the original version of this tool for [The Breach](https://breached.jcink.net/index.php?showtopic=7&view=findpost&p=30). The version initially provided here has been generalized more thoroughly documented for easier use on other sites, and has since received additional updates.
 
 **Pull requests are welcome** if you have ideas for improvements that you'd like to share. Requests for new features or difficulties with the tool can be submitted for consideration as [issues in this repo](https://github.com/rp-magrathea/claim-code-generator/issues).
 
@@ -14,7 +14,7 @@ A [demo version of the generator](https://rp-magrathea.github.io/claim-code-gene
 - `claim-code-generator.js` (required) constructs the claim HTML when members submit the form
 - `claim-code-generator.css` (optional) provides bare bones styling for the demo version (and can be built upon for actual use)
 
-For more detailed usage information and tips, see [the wiki](https://github.com/littlelark/magrathea/wiki/Claim-Code-Generator%3A-Getting-Started).
+For more detailed usage information and tips, see [the wiki](https://github.com/rp-magrathea/claim-code-generator/wiki).
 
 ## The License
 
