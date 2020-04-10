@@ -130,6 +130,8 @@ function generateClaimCode() {
     const resultBox = document.getElementById("claim-generator-result").querySelector("code"); // demo version, comment out when actually using
     // const resultBox = document.getElementById("claim-generator-result").querySelector("td#code"); // real version
 
+    let errors = [];
+
     let fields = {
         text: [
             "writer-alias"
