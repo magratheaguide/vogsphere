@@ -3,41 +3,6 @@ const newline = "\n";
 const newlineDouble = "\n\n";
 
 /* HTML TO GENERATE:
-<div class="claim-row">
-    <span class="detail-alitus"><b>FACE_NAME</b></span> as <span class="detail-alitus no-bg text-color-MEMBERGROUP"><a href="PROFILE_URL" title="played by ALIAS">CHARACTER_NAME</a></span>
-</div>
-*/
-function generateFaceClaimCode(alias, face, group, name, url) {
-    // create containing element
-    var claim = document.createElement("div");
-    claim.className = "claim-row";
-
-    // face element
-    var claimFace = document.createElement("span");
-    claimFace.className = "detail-alitus";
-    claimFace.appendChild(document.createElement("b"));
-    claimFace.firstChild.innerHTML = face;
-
-    // character element
-    var claimCharacter = document.createElement("span");
-    claimCharacter.className = "detail-alitus no-bg text-color-" + group;
-    var claimLink = document.createElement("a");
-    claimLink.href = url;
-    claimLink.title = "played by " + alias;
-    claimLink.innerHTML = name;
-    claimCharacter.appendChild(claimLink);
-
-    // add content to container
-    claim.innerHTML += indent1;
-    claim.appendChild(claimFace);
-    claim.innerHTML += " as ";
-    claim.appendChild(claimCharacter);
-    claim.innerHTML += newline;
-
-    return claim;
-}
-
-/* HTML TO GENERATE:
 <div class="list-item level-3">
     <span class="list-taken-by text-color-MEMBERGROUP"><a href="PROFILE_URL">CHARACTER_NAME</a></span>
     <span class="list-aside">(OCCUPATION)</span>
@@ -214,13 +179,9 @@ function generateClaimCode() {
 
     // process claims
     if (!error) {
-        var faceClaim = generateFaceClaimCode(
-            input.alias.value
-            , input.face.value
-            , input.group.value
-            , input.name.value
-            , input.url.value
-        );
+        let faceClaim = `<div class="claim-row">
+    <span class="detail-alitus"><b>${input.face.value}</b></span> as <span class="detail-alitus no-bg text-color-${input.group.value}"><a href="${input.url.value}" title="played by ${input.alias.value}">${input.name.value}</a></span>
+</div>`;
         var occupationClaim = generateOccupationClaimCode(
             input.group.value
             , input.name.value
@@ -269,7 +230,7 @@ function generateClaimCode() {
         // note that [pathfinder] is our default post bbcode
         code.innerHTML += "&#91;pathfinder&#93;\n";
         code.innerHTML += "Face claim: \n&#91;code&#93;\n";
-        code.appendChild(faceClaim);
+        code.innerHTML += faceClaim;
         code.innerHTML += "\n&#91;/code&#93;\n\n";
 
         code.innerHTML += "Occupation claim:"
