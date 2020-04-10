@@ -1,6 +1,8 @@
 const indent1 = "\n    ";
 const newline = "\n";
 const newlineDouble = "\n\n";
+const leftBracket = "&#91;";
+const rightBracket = "&#93;";
 
 /* HTML TO GENERATE:
 <div class="list-item level-3">
