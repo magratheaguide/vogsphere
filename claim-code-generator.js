@@ -130,11 +130,23 @@ function generateClaimCode() {
     const resultBox = document.getElementById("claim-generator-result").querySelector("code"); // demo version, comment out when actually using
     // const resultBox = document.getElementById("claim-generator-result").querySelector("td#code"); // real version
 
-    let fields = [
-        { name: "writer-alias", type: "text" }
-        , { name: "face-claim", type: "text" }
-        , { name: "is-new-lab", type: "bool" }
-    ]
+    let fields = {
+        text: [
+            "writer-alias"
+            , "face-claim"
+            , "member-group"
+            , "character-name"
+            , "lab-desc"
+            , "lab-name"
+            , "occupation"
+            , "requester"
+            , "request-location"
+            , "profile-url"
+        ], bool: [
+            "is-lead-scientist"
+            , "is-new-lab"
+        ]
+    }
 
     let input = {};
 
@@ -150,58 +162,23 @@ function generateClaimCode() {
         return form.elements[name].value == "true";
     }
 
-    for (i = 0; i < fields.length; i++) {
-        let x = fields[i];
+    for (type in fields) {
+        let list = fields[type];
 
-        if (x.type === "text") {
-            input[x.name] = new claimText(x.name);
-        } else if (x.type === "bool") {
-            input[x.name] = claimBool(x.name);
+        for (i = 0; i < list.length; i++) {
+            let name = list[i];
+
+            if (type === "text") {
+                input[name] = new claimText(name);
+            } else if (type === "bool") {
+                input[name] = claimBool(name);
+            }
         }
     }
 
     console.log(input);
-}
 
-function generateClaimCodeOld() {
-    const formId = this.getAttribute("form");
-    const form = document.getElementById(formId);
 
-    // create temp container
-    let code = document.createElement("div");
-
-    // get a handle on the place the code needs to go
-    const resultBox = document.getElementById("claim-generator-result").querySelector("code"); // demo version, comment out when actually using
-    // const resultBox = document.getElementById("claim-generator-result").querySelector("td#code"); // real version
-
-    // get form inputs
-    class claimText {
-        constructor(name) {
-            this.value = form.elements[name].value;
-            this.required = form.elements[name].required;
-            this.prettyName = name.replace(/-/g, " ");
-        }
-    }
-
-    function claimBool(name) {
-        return form.elements[name].value == 'true';
-    }
-
-    var input = {
-        alias: new claimText("writer-alias")
-        , face: new claimText("face-claim")
-        , group: new claimText("member-group")
-        , name: new claimText("character-name")
-        , labDesc: new claimText("lab-desc")
-        , labName: new claimText("lab-name")
-        , occupation: new claimText("occupation")
-        , requester: new claimText("requester")
-        , requestLocation: new claimText("request-location")
-        , url: new claimText("profile-url")
-
-        , isLead: claimBool("is-lead-scientist")
-        , isNewLab: claimBool("is-new-lab")
-    };
 
     // check that required input is present
     var error = false;
