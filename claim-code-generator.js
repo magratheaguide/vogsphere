@@ -125,11 +125,11 @@ function generateClaimCode() {
     const form = document.getElementById(formId);
 
     // create temp container
-    var code = document.createElement("div");
+    let code = document.createElement("div");
 
     // get a handle on the place the code needs to go
-    var resultBox = document.getElementById("claim-generator-result").querySelector("code"); // demo version, comment out when actually using
-    // var resultBox = document.getElementById("claim-generator-result").querySelector("td#code"); // real version
+    const resultBox = document.getElementById("claim-generator-result").querySelector("code"); // demo version, comment out when actually using
+    // const resultBox = document.getElementById("claim-generator-result").querySelector("td#code"); // real version
 
     // get form inputs
     class claimText {
