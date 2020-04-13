@@ -148,7 +148,7 @@ function generateClaimCode() {
             "is-lead-scientist"
             , "is-new-lab"
         ]
-    }
+    };
 
     let input = {};
 
