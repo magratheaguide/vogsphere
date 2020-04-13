@@ -168,23 +168,55 @@ function generateClaimCode() {
         return form.elements[name].value == "true";
     }
 
-    for (type in fields) {
-        let list = fields[type];
+    // pull input from form
+    for (const type in fields) {
+        const list = fields[type];
 
-        for (i = 0; i < list.length; i++) {
-            let name = list[i];
-
-            if (type === "text") {
-                input[name] = new claimText(name);
-            } else if (type === "bool") {
-                input[name] = claimBool(name);
+        for (const name of list) {
+            if (!isInForm(name)) {
+                errors.push(`ERROR: Could not find field with name "${name}" in form. Contact admin`);
+            } else {
+                switch(type) {
+                    case "text":
+                        input[name] = new claimText(name);
+                        break;
+                    case "bool":
+                        input[name] = claimBool(name);
+                        break;
+                    default:
+                        errors.push(`ERROR: Form field type "${type}" is unsupported. Contact admin`);
+                        break;
+                }
             }
         }
     }
 
     console.log(input);
 
+    // check for empty required fields
+    for (const x in input) {
+        if (input[x].required && !input[x].value) {
+            errors.push(`ERROR: Missing ${input[x].prettyName}`);
+        }
+    }
 
+    // check for context-sensitive errors
+    if (input["is-new-lab"] && !input["lab-desc"].value) {
+        errors.push(`ERROR: Missing ${input["lab-desc"].prettyName}`);
+    }
+    if (input["member-group"].value == "scientist" && !input["lab-name"].value) {
+        errors.push(`ERROR: Missing ${input["lab-name"].prettyName}`);
+    }
+
+
+    if (errors.length > 0) {
+        console.log("errors found");
+        console.log(errors);
+    } else {
+        console.log("no errors");
+    }
+
+    return;
 
     // check that required input is present
     var error = false;
