@@ -152,6 +152,10 @@ function generateClaimCode() {
 
     let input = {};
 
+    function isInForm(name) {
+        return (!!form.elements[name]);
+    }
+
     class claimText {
         constructor(name) {
             this.value = form.elements[name].value;
