@@ -191,9 +191,7 @@ function generateClaimCode() {
         }
     }
 
-    console.log(input);
-
-    // check for empty required fields
+    // check that required input is present
     for (const x in input) {
         if (input[x].required && !input[x].value) {
             errors.push(`ERROR: Missing ${input[x].prettyName}`);
@@ -201,39 +199,21 @@ function generateClaimCode() {
     }
 
     // check for context-sensitive errors
-    if (input["is-new-lab"] && !input["lab-desc"].value) {
-        errors.push(`ERROR: Missing ${input["lab-desc"].prettyName}`);
+    if (input["is-new-lab"] && !input["lab-description"].value) {
+        errors.push(`ERROR: Missing ${input["lab-description"].prettyName}`);
     }
     if (input["member-group"].value == "scientist" && !input["lab-name"].value) {
         errors.push(`ERROR: Missing ${input["lab-name"].prettyName}`);
     }
 
+    // print errors for user
+    for (const x of errors) {
+        resultBox.textContent += x + newline;
+    }
+    
+    // stop if input errors were found
+    if (errors.length > 0) { return; }
 
-    if (errors.length > 0) {
-        console.log("errors found");
-        console.log(errors);
-    } else {
-        console.log("no errors");
-    }
-
-    return;
-
-    // check that required input is present
-    var error = false;
-    for (var x in input) {
-        if (input[x].required && !input[x].value) {
-            error = true;
-            code.innerHTML += "ERROR: Missing " + input[x].prettyName + newline;
-        }
-    }
-    if (input.isNewLab && !input.labDesc.value) {
-        error = true;
-        code.innerHTML += "ERROR: Missing " + input.labDesc.prettyName + newline;
-    }
-    if (input.group.value == "scientist" && !input.labName.value) {
-        error = true;
-        code.innerHTML += "ERROR: Missing " + input.labName.prettyName + newline;
-    }
 
     // process claims
     if (!error) {
