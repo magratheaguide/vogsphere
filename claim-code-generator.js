@@ -138,7 +138,7 @@ function generateClaimCode() {
             , "face-claim"
             , "member-group"
             , "character-name"
-            , "lab-desc"
+            , "lab-description"
             , "lab-name"
             , "occupation"
             , "requester"
