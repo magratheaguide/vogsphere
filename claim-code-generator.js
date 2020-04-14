@@ -135,65 +135,35 @@ ${ input["is-lab-lead"] ? occupationClaim : "" }
     <span class="heading-dollfus">Staff</span>
 </div>
 
-${ input["is-lab-lead"] ? "" : occupationClaim }`
+${ input["is-lab-lead"] ? "" : occupationClaim }`;
     }
 
     console.log(faceClaim);
     console.log(occupationClaim);
     console.log(labClaim);
 
-    return;
+    let postBbcodeName = "pathfinder";
+    let postBbcodeOpen = leftBracket + postBbcodeName + rightBracket;
+    let postBbcodeClose = leftBracket + "/" + postBbcodeName + rightBracket;
 
-    // add claims to final output code. note that []s (used here for bbcodes) need to be escaped
-    // note that [pathfinder] is our default post bbcode
-    code.innerHTML += "&#91;pathfinder&#93;\n";
-    code.innerHTML += "Face claim: \n&#91;code&#93;\n";
-    code.innerHTML += faceClaim;
-    code.innerHTML += "\n&#91;/code&#93;\n\n";
+    let codeBbcodeOpen = leftBracket + "code" + rightBracket;
+    let codeBbcodeClose = leftBracket + "/code" + rightBracket;
 
-    code.innerHTML += "Occupation claim:"
-    if (input.group.value == "scientist" && input.isLead) {
-        code.innerHTML += "\n(Add to " + input.labName.value + " as Lead)";
-    } else if (input.group.value == "scientist" && !input.isLead) {
-        code.innerHTML += "\n(Add to " + input.labName.value + " as Staff)";
-    }
-    code.innerHTML += "\n\n&#91;code&#93;\n";
-    if (input.isNewLab) {
-        code.innerHTML += occupationClaim.innerHTML;
-    } else {
-        code.appendChild(occupationClaim);
-    }
-    code.innerHTML += "\n&#91;/code&#93;";
+    let code = `${postBbcodeOpen}
+Face claim: 
+${codeBbcodeOpen} ${faceClaim} ${codeBbcodeClose}
 
-    // add request details, if applicable
-    if (input.requester.value || input.requestLocation.value) {
-        code.innerHTML += "\n\n&#91;b&#93;REQUESTED CHARACTER&#91;/b&#93;\n";
+Occupation claim: ${ input["member-group"].value == "scientist" ? `
+Add to ${input["lab-name"].value} as ${ input["is-lab-lead"] ? "Lead" : "Staff" }` : "" }
+${codeBbcodeOpen} ${ input["is-new-lab"] ? labClaim : occupationClaim } ${codeBbcodeClose}
 
-        // add requester name, if available
-        if (input.requester.value) {
-            code.innerHTML += "Requested by: " + input.requester.value + newline;
-        }
-
-        // add request location, if available
-        if (input.requestLocation.value) {
-            // if it looks like a link, make it a link
-            if (input.requestLocation.value && /^http/.test(input.requestLocation.value)) {
-                var requestLink = "&#91;url=" + input.requestLocation.value + "&#93;" + input.requestLocation.value + "&#91;/url&#93;";
-            }
-
-            code.innerHTML += "Request location: ";
-            if (requestLink) {
-                code.innerHTML += requestLink;
-            } else {
-                code.innerHTML += input.requestLocation.value;
-            }
-        }
-    }
-
-    code.innerHTML += "\n&#91;/pathfinder&#93;";
+${ input["requester"].value || input["request-location"].value ? `${leftBracket}b${rightBracket}REQUESTED CHARACTER${leftBracket}/b${rightBracket}
+${ input["requester"].value ? `Requested by: ${input["requester"].value}` : "" }` : "" } 
+${ input["request-location"].value ? `Request location: ${ input["request-location"].value && /^http/.test(input["request-location"].value) ? `${leftBracket}url="${input["request-location"].value}"${rightBracket}${input["request-location"].value}${leftBracket}/url${rightBracket}` : input["request-location"].value }` : "" }
+${postBbcodeClose}`;
 
     // put code in the code box for use
-    resultBox.textContent = code.innerHTML;
+    resultBox.textContent = code;
     return;
 }
 
