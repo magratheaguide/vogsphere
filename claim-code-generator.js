@@ -145,7 +145,7 @@ function generateClaimCode() {
             , "request-location"
             , "profile-url"
         ], bool: [
-            "is-lead-scientist"
+            "is-lab-lead"
             , "is-new-lab"
         ]
     };
@@ -199,7 +199,7 @@ function generateClaimCode() {
     }
 
     // check for context-sensitive errors
-    if (input["is-new-lab"] && !input["lab-description"].value) {
+    if (input["member-group"].value == "scientist" && input["is-new-lab"] && !input["lab-description"].value) {
         errors.push(`ERROR: Missing ${input["lab-description"].prettyName}`);
     }
     if (input["member-group"].value == "scientist" && !input["lab-name"].value) {
