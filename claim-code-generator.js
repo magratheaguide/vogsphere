@@ -1,4 +1,4 @@
-(function() {
+(function () {
     "use strict";
 
     const indent1 = "\n    ";
@@ -12,7 +12,9 @@
         const form = document.getElementById(formId);
 
         // get a handle on the place the code needs to go
-        const resultBox = document.getElementById("js-claim-generator-result").querySelector("code"); // demo version, comment out when actually using
+        const resultBox = document
+            .getElementById("js-claim-generator-result")
+            .querySelector("code"); // demo version, comment out when actually using
         // const resultBox = document.getElementById("claim-generator-result").querySelector("td#code"); // real version
 
         // clear any past results
@@ -22,26 +24,24 @@
 
         let fields = {
             text: [
-                "writer-alias"
-                , "face-claim"
-                , "member-group"
-                , "character-name"
-                , "lab-description"
-                , "lab-name"
-                , "occupation"
-                , "requester"
-                , "request-location"
-                , "profile-url"
-            ], bool: [
-                "is-lab-lead"
-                , "is-new-lab"
-            ]
+                "writer-alias",
+                "face-claim",
+                "member-group",
+                "character-name",
+                "lab-description",
+                "lab-name",
+                "occupation",
+                "requester",
+                "request-location",
+                "profile-url",
+            ],
+            bool: ["is-lab-lead", "is-new-lab"],
         };
 
         let input = {};
 
         function isInForm(name) {
-            return (!!form.elements[name]);
+            return !!form.elements[name];
         }
 
         class claimText {
@@ -62,9 +62,11 @@
 
             for (const name of list) {
                 if (!isInForm(name)) {
-                    errors.push(`ERROR: Could not find field with name "${name}" in form. Contact admin`);
+                    errors.push(
+                        `ERROR: Could not find field with name "${name}" in form. Contact admin`
+                    );
                 } else {
-                    switch(type) {
+                    switch (type) {
                         case "text":
                             input[name] = new claimText(name);
                             break;
@@ -72,7 +74,9 @@
                             input[name] = claimBool(name);
                             break;
                         default:
-                            errors.push(`ERROR: Form field type "${type}" is unsupported. Contact admin`);
+                            errors.push(
+                                `ERROR: Form field type "${type}" is unsupported. Contact admin`
+                            );
                             break;
                     }
                 }
@@ -87,10 +91,19 @@
         }
 
         // check for context-sensitive errors
-        if (input["member-group"].value == "scientist" && input["is-new-lab"] && !input["lab-description"].value) {
-            errors.push(`ERROR: Missing ${input["lab-description"].prettyName}`);
+        if (
+            input["member-group"].value == "scientist" &&
+            input["is-new-lab"] &&
+            !input["lab-description"].value
+        ) {
+            errors.push(
+                `ERROR: Missing ${input["lab-description"].prettyName}`
+            );
         }
-        if (input["member-group"].value == "scientist" && !input["lab-name"].value) {
+        if (
+            input["member-group"].value == "scientist" &&
+            !input["lab-name"].value
+        ) {
             errors.push(`ERROR: Missing ${input["lab-name"].prettyName}`);
         }
 
@@ -98,9 +111,11 @@
         for (const x of errors) {
             resultBox.textContent += x + newline;
         }
-        
+
         // stop if input errors were found
-        if (errors.length > 0) { return; }
+        if (errors.length > 0) {
+            return;
+        }
 
         console.log(input);
 
@@ -111,8 +126,16 @@
     </div>`;
 
         let occupationClaim = `<div class="list-item level-3">
-        <span class="list-taken-by text-color-${input["member-group"].value}"><a href="${input["profile-url"].value}">${input["character-name"].value}</a></span>${ input["occupation"].value === "" ? "" : `
-        <span class="list-aside">(${input["occupation"].value})</span>` }
+        <span class="list-taken-by text-color-${
+            input["member-group"].value
+        }"><a href="${input["profile-url"].value}">${
+            input["character-name"].value
+        }</a></span>${
+            input["occupation"].value === ""
+                ? ""
+                : `
+        <span class="list-aside">(${input["occupation"].value})</span>`
+        }
     </div>`;
 
         let labClaim;
@@ -132,13 +155,13 @@
         <span class="pill-gusev">Limit 1</span>
     </div>
 
-    ${ input["is-lab-lead"] ? occupationClaim : "" }
+    ${input["is-lab-lead"] ? occupationClaim : ""}
 
     <div class="list-item level-2">
         <span class="heading-dollfus">Staff</span>
     </div>
 
-    ${ input["is-lab-lead"] ? "" : occupationClaim }`;
+    ${input["is-lab-lead"] ? "" : occupationClaim}`;
         }
 
         console.log(faceClaim);
@@ -156,13 +179,38 @@
     Face claim: 
     ${codeBbcodeOpen} ${faceClaim} ${codeBbcodeClose}
 
-    Occupation claim: ${ input["member-group"].value == "scientist" ? `
-    Add to ${input["lab-name"].value} as ${ input["is-lab-lead"] ? "Lead" : "Staff" }` : "" }
-    ${codeBbcodeOpen} ${ input["is-new-lab"] ? labClaim : occupationClaim } ${codeBbcodeClose}
+    Occupation claim: ${
+        input["member-group"].value == "scientist"
+            ? `
+    Add to ${input["lab-name"].value} as ${
+                  input["is-lab-lead"] ? "Lead" : "Staff"
+              }`
+            : ""
+    }
+    ${codeBbcodeOpen} ${
+            input["is-new-lab"] ? labClaim : occupationClaim
+        } ${codeBbcodeClose}
 
-    ${ input["requester"].value || input["request-location"].value ? `${leftBracket}b${rightBracket}REQUESTED CHARACTER${leftBracket}/b${rightBracket}
-    ${ input["requester"].value ? `Requested by: ${input["requester"].value}` : "" }` : "" } 
-    ${ input["request-location"].value ? `Request location: ${ input["request-location"].value && /^http/.test(input["request-location"].value) ? `${leftBracket}url="${input["request-location"].value}"${rightBracket}${input["request-location"].value}${leftBracket}/url${rightBracket}` : input["request-location"].value }` : "" }
+    ${
+        input["requester"].value || input["request-location"].value
+            ? `${leftBracket}b${rightBracket}REQUESTED CHARACTER${leftBracket}/b${rightBracket}
+    ${
+        input["requester"].value
+            ? `Requested by: ${input["requester"].value}`
+            : ""
+    }`
+            : ""
+    } 
+    ${
+        input["request-location"].value
+            ? `Request location: ${
+                  input["request-location"].value &&
+                  /^http/.test(input["request-location"].value)
+                      ? `${leftBracket}url="${input["request-location"].value}"${rightBracket}${input["request-location"].value}${leftBracket}/url${rightBracket}`
+                      : input["request-location"].value
+              }`
+            : ""
+    }
     ${postBbcodeClose}`;
 
         // put code in the code box for use
@@ -172,4 +220,4 @@
 
     const runBtn = document.getElementById("js-claim-generator-run");
     runBtn.addEventListener("click", generateClaimCode, false);
-} )();
+})();
