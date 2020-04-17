@@ -1,3 +1,6 @@
+/* CLAIM CODE GENERATOR
+Purpose: Convert member-provided answers from the associated form into the code admins need to update the various claims lists. 
+*/
 (function () {
     "use strict";
 
