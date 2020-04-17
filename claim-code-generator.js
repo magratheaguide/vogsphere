@@ -4,62 +4,54 @@ Purpose: Convert member-provided answers from the associated form into the code 
 (function () {
     "use strict";
 
-    const indent1 = "\n    ";
+    const runBtn = document.getElementById("js-claim-generator-run");
+
+    // get a handle on the place the code needs to go
+    const resultBox = document
+    .getElementById("js-claim-generator-result")
+    .querySelector("code"); // demo version, comment out when actually using
+    // .querySelector("td#code"); // real version
+
+    const formId = runBtn.getAttribute("form");
+    const form = document.getElementById(formId);
+
+    const indent1 = "    ";
     const newline = "\n";
     const newlineDouble = "\n\n";
     const leftBracket = "&#91;";
     const rightBracket = "&#93;";
 
-    function generateClaimCode() {
-        const formId = this.getAttribute("form");
-        const form = document.getElementById(formId);
+    let fields = {
+        text: [
+            "writer-alias",
+            "face-claim",
+            "member-group",
+            "character-name",
+            "lab-description",
+            "lab-name",
+            "occupation",
+            "requester",
+            "request-location",
+            "profile-url",
+        ],
+        bool: ["is-lab-lead", "is-new-lab"],
+    };
+    let input = {};
+    let errors = [];
 
-        // get a handle on the place the code needs to go
-        const resultBox = document
-            .getElementById("js-claim-generator-result")
-            .querySelector("code"); // demo version, comment out when actually using
-        // const resultBox = document.getElementById("claim-generator-result").querySelector("td#code"); // real version
-
-        // clear any past results
-        resultBox.innerHTML = "";
-
-        let errors = [];
-
-        let fields = {
-            text: [
-                "writer-alias",
-                "face-claim",
-                "member-group",
-                "character-name",
-                "lab-description",
-                "lab-name",
-                "occupation",
-                "requester",
-                "request-location",
-                "profile-url",
-            ],
-            bool: ["is-lab-lead", "is-new-lab"],
-        };
-
-        let input = {};
-
-        function isInForm(name) {
-            return !!form.elements[name];
+    class claimText {
+        constructor(name) {
+            this.value = form.elements[name].value;
+            this.required = form.elements[name].required;
+            this.prettyName = name.replace(/-/g, " ");
         }
+    }
 
-        class claimText {
-            constructor(name) {
-                this.value = form.elements[name].value;
-                this.required = form.elements[name].required;
-                this.prettyName = name.replace(/-/g, " ");
-            }
-        }
+    function isInForm(name) {
+        return !!form.elements[name];
+    }
 
-        function claimBool(name) {
-            return form.elements[name].value == "true";
-        }
-
-        // pull input from form
+    function getInput() {
         for (const type in fields) {
             const list = fields[type];
 
@@ -74,7 +66,7 @@ Purpose: Convert member-provided answers from the associated form into the code 
                             input[name] = new claimText(name);
                             break;
                         case "bool":
-                            input[name] = claimBool(name);
+                            input[name] = (form.elements[name].value == "true");
                             break;
                         default:
                             errors.push(
@@ -85,6 +77,11 @@ Purpose: Convert member-provided answers from the associated form into the code 
                 }
             }
         }
+    }
+
+    function validateInput() {
+        // clear past errors
+        errors = [];
 
         // check that required input is present
         for (const x in input) {
@@ -110,14 +107,20 @@ Purpose: Convert member-provided answers from the associated form into the code 
         ) {
             errors.push(`ERROR: Missing ${input["lab-name"].prettyName}`);
         }
+    }
 
-        // print errors for user
-        for (const x of errors) {
-            resultBox.textContent += x + newline;
-        }
+    function generateClaimCode() {
+        // clear any past results
+        resultBox.innerHTML = "";
+
+        // pull input from form
+        getInput();
+
+        validateInput();
 
         // stop if input errors were found
         if (errors.length > 0) {
+            errors.forEach(element => resultBox.textContent += element + newline);
             return;
         }
 
@@ -222,6 +225,5 @@ Purpose: Convert member-provided answers from the associated form into the code 
         return;
     }
 
-    const runBtn = document.getElementById("js-claim-generator-run");
     runBtn.addEventListener("click", generateClaimCode, false);
 })();
