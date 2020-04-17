@@ -95,17 +95,18 @@ Purpose: Convert member-provided answers from the associated form into the code 
 
         // check for context-sensitive errors
         if (
-            input["member-group"].value == "scientist" &&
-            input["is-new-lab"] &&
-            !input["lab-description"].value
+            input["member-group"].value == "scientist"
+            && input["is-new-lab"]
+            && !input["lab-description"].value
         ) {
             errors.push(
                 `ERROR: Missing ${input["lab-description"].prettyName}`
             );
         }
+
         if (
-            input["member-group"].value == "scientist" &&
-            !input["lab-name"].value
+            input["member-group"].value == "scientist"
+            && !input["lab-name"].value
         ) {
             errors.push(`ERROR: Missing ${input["lab-name"].prettyName}`);
         }
