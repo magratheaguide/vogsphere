@@ -51,6 +51,14 @@ Purpose: Convert member-provided answers from the associated form into the code 
         return !!form.elements[name];
     }
 
+    function reset() {
+        // clear any past results
+        resultBox.innerHTML = "";
+
+        // clear past errors
+        errors = [];
+    }
+
     function getInput() {
         for (const type in fields) {
             switch(type) {
@@ -70,9 +78,6 @@ Purpose: Convert member-provided answers from the associated form into the code 
     }
 
     function validateInput() {
-        // clear past errors
-        errors = [];
-
         // check that required input is present
         for (const x in input) {
             if (input[x].required && !input[x].value) {
@@ -100,10 +105,8 @@ Purpose: Convert member-provided answers from the associated form into the code 
     }
 
     function generateClaimCode() {
-        // clear any past results
-        resultBox.innerHTML = "";
+        reset();
 
-        // pull input from form
         getInput();
 
         validateInput();
