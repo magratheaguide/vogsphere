@@ -8,9 +8,9 @@ Purpose: Convert member-provided answers from the associated form into the code 
 
     // get a handle on the place the code needs to go
     const resultBox = document
-    .getElementById("js-claim-generator-result")
-    .querySelector("code"); // demo version, comment out when actually using
-    // .querySelector("td#code"); // real version
+        .getElementById("js-claim-generator-result")
+        .querySelector("code"); // demo version, comment out when actually using
+        // .querySelector("td#code"); // real version
 
     const formId = runBtn.getAttribute("form");
     const form = document.getElementById(formId);
