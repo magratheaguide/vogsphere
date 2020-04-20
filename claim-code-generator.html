@@ -13,10 +13,10 @@
             </legend>
 
             <label for="claim-generator-name">Character Name</label>
-            <input id="claim-generator-name" class="textinput" name="character-name" type="text" required>
+            <input id="claim-generator-name" class="textinput" name="characterName" type="text" required>
 
             <label for="claim-generator-group">Member Group</label>
-            <select id="claim-generator-group" name="member-group" required>
+            <select id="claim-generator-group" name="memberGroup" required>
                 <option value="">--Please choose an option--</option>
                 <option value="crew">Crew</option>
                 <option value="scientist">Scientist</option>
@@ -24,13 +24,13 @@
             </select>
 
             <label for="claim-generator-url">Profile URL</label>
-            <input id="claim-generator-url" class="textinput" name="profile-url" type="text" required>
+            <input id="claim-generator-url" class="textinput" name="profileUrl" type="text" required>
 
             <label for="claim-generator-alias">Writer Alias</label>
-            <input id="claim-generator-alias" class="textinput" name="writer-alias" type="text" required>
+            <input id="claim-generator-alias" class="textinput" name="writerAlias" type="text" required>
 
             <label for="claim-generator-face">Face Claim</label>
-            <input id="claim-generator-face" class="textinput" name="face-claim" type="text" required>
+            <input id="claim-generator-face" class="textinput" name="faceClaim" type="text" required>
 
             <label for="claim-generator-occupation">Occupation</label>
             <input id="claim-generator-occupation" class="textinput" name="occupation" type="text">
@@ -52,21 +52,21 @@
             </legend>
 
             <label for="claim-generator-lab-name">Lab Name</label>
-            <input id="claim-generator-lab-name" class="textinput" name="lab-name" type="text">
+            <input id="claim-generator-lab-name" class="textinput" name="labName" type="text">
 
             <label>Is this lab already in the Occupation Claim?</label>
             <div class="input-group">
-                <input id="is-not-new-lab" type="radio" name="is-new-lab" value="true">
+                <input id="is-not-new-lab" type="radio" name="isNewLab" value="true">
                 <label for="is-not-new-lab">No</label>
-                <input id="is-new-lab" type="radio" name="is-new-lab" value="false" checked>
+                <input id="is-new-lab" type="radio" name="isNewLab" value="false" checked>
                 <label for="is-new-lab">Yes</label>
             </div>
 
             <label>Is this character their lab's Lead Scientist?</label>
             <div class="input-group">
-                <input id="is-not-lab-lead" type="radio" name="is-lab-lead" value="false" checked>
+                <input id="is-not-lab-lead" type="radio" name="isLabLead" value="false" checked>
                 <label for="is-not-lab-lead">No</label>
-                <input id="is-lab-lead" type="radio" name="is-lab-lead" value="true">
+                <input id="is-lab-lead" type="radio" name="isLabLead" value="true">
                 <label for="is-lab-lead">Yes</label>
             </div>
 
@@ -74,7 +74,7 @@
             <div class="label-additional">
                 If this is a new lab to be added to the Occupation Claim, please provide a quick description. Otherwise, leave blank.
             </div>
-            <textarea id="claim-generator-lab-desc" class="textinput" name="lab-description" rows="10"></textarea>
+            <textarea id="claim-generator-lab-desc" class="textinput" name="labDescription" rows="10"></textarea>
         </fieldset>
 
         <fieldset>
@@ -89,7 +89,7 @@
             <input id="claim-generator-requester" class="textinput" name="requester" type="text">
 
             <label for="claim-generator-request-location">Request Location</label>
-            <input id="claim-generator-request-location" class="textinput" name="request-location" type="text">
+            <input id="claim-generator-request-location" class="textinput" name="requestLocation" type="text">
         </fieldset>
 
         <button id="js-claim-generator-run" class="forminput button-claim-generator" form="form-claim-code-generator" type="button">Generate Code</button>
