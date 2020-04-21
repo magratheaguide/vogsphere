@@ -9,8 +9,8 @@ Purpose: Convert member-provided answers from the associated form into the code 
     // get a handle on the place the code needs to go
     const resultBox = document
         .getElementById("js-claim-generator-result")
-        .querySelector("code"); // demo version, comment out when actually using
-        // .querySelector("td#code"); // real version
+        .querySelector("code"); // TODO: demo version, comment out when actually using
+        // .querySelector("td#code"); // TODO: real version
 
     const formId = runBtn.getAttribute("form");
     const form = document.getElementById(formId);
@@ -18,10 +18,13 @@ Purpose: Convert member-provided answers from the associated form into the code 
     const indent1 = "    ";
     const newline = "\n";
     const newlineDouble = "\n\n";
+
+    // square brackets must be escaped or else they get processed right away by Jcink
     const leftBracket = "&#91;";
     const rightBracket = "&#93;";
 
-    let postBbcodeName = "pathfinder";
+    // DOHTML codes
+    let postBbcodeName = "pathfinder"; // TODO: should be the bbcode name of your site's post template
     let postBbcodeOpen = leftBracket + postBbcodeName + rightBracket;
     let postBbcodeClose = leftBracket + "/" + postBbcodeName + rightBracket;
 
