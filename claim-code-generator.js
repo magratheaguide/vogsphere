@@ -34,10 +34,10 @@ Purpose: Convert member-provided answers from the associated form into the code 
     let boldOpen = leftBracket + "b" + rightBracket;
     let boldClose = leftBracket + "/b" + rightBracket;
 
-    function bold(content) { return `${boldOpen}${content}${boldClose}`; }
-    function url(address) { return `${leftBracket}url="${address}"${rightBracket}${address}${leftBracket}/url${rightBracket}`; }
+    function formatBold(content) { return `${boldOpen}${content}${boldClose}`; }
+    function formatUrl(address) { return `${leftBracket}url="${address}"${rightBracket}${address}${leftBracket}/url${rightBracket}`; }
 
-    let fields = {
+    let expectedFormFields = {
         text: [
             "characterName"
             , "faceClaim"
@@ -58,7 +58,7 @@ Purpose: Convert member-provided answers from the associated form into the code 
     let input = {};
     let errors = [];
 
-    class claimText {
+    class textInput {
         constructor(name) {
             this.value = form.elements[name].value;
             this.required = form.elements[name].required;
@@ -69,7 +69,7 @@ Purpose: Convert member-provided answers from the associated form into the code 
         return !!form.elements[name];
     }
 
-    function reset() {
+    function resetGenerator() {
         // clear any past results
         resultBox.innerHTML = "";
 
@@ -78,14 +78,14 @@ Purpose: Convert member-provided answers from the associated form into the code 
     }
 
     function getInput() {
-        for (const type in fields) {
-            fields[type].forEach(fieldName => {
+        for (const type in expectedFormFields) {
+            expectedFormFields[type].forEach(fieldName => {
                 if (!isInForm(fieldName)) {
                     errors.push(`ERROR: Could not find field with name "${fieldName}" in form. Contact admin`);
                 } else {
                     switch(type) {
                         case "text":
-                            input[fieldName] = new claimText(fieldName);
+                            input[fieldName] = new textInput(fieldName);
                             break;
                         case "bool":
                             input[fieldName] = (form.elements[fieldName].value === "true");
@@ -198,7 +198,7 @@ ${codeBbcodeOpen} ${input.isNewLab ? labClaim : occupationClaim} ${codeBbcodeClo
     input.requester.value || input.requestLocation.value
     ? `
 
-${bold("REQUESTED CHARACTER")} ${
+${formatBold("REQUESTED CHARACTER")} ${
         input.requester.value
         ? `
 Requested by: ${input.requester.value}`
@@ -209,7 +209,7 @@ Requested by: ${input.requester.value}`
 Request location: ${
             input.requestLocation.value 
             && /^http/.test(input.requestLocation.value)
-            ? url(input.requestLocation.value)
+            ? formatUrl(input.requestLocation.value)
             : input.requestLocation.value
         }`
         : ""
@@ -221,8 +221,11 @@ ${postBbcodeClose}`;
         return code;
     }
 
-    function generateClaimCode() {
-        reset();
+    function generateClaimPost() {
+        let claims;
+        let post;
+
+        resetGenerator();
 
         getInput();
 
@@ -233,21 +236,14 @@ ${postBbcodeClose}`;
             errors.forEach(element => resultBox.textContent += element + newline);
             return;
         }
-
-        console.log(input);
  
-        let claims = fillInClaims();
+        claims = fillInClaims();
 
-        console.log(claims.faceClaim);
-        console.log(claims.occupationClaim);
-        console.log(claims.labClaim);
+        post = compileClaimPost(claims);
 
-        let code = compileClaimPost(claims);
-
-        // put code in the code box for use
-        resultBox.textContent = code;
+        resultBox.textContent = post;
         return;
     }
 
-    runBtn.addEventListener("click", generateClaimCode, false);
+    runBtn.addEventListener("click", generateClaimPost, false);
 })();
