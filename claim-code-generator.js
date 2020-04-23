@@ -79,19 +79,23 @@ Purpose: Convert member-provided answers from the associated form into the code 
 
     function getInput() {
         for (const type in fields) {
-            switch(type) {
-                case "text":
-                    fields[type].forEach(name => input[name] = new claimText(name));
-                    break;
-                case "bool":
-                    fields[type].forEach(name => input[name] = (form.elements[name].value === "true"));
-                    break;
-                default:
-                    errors.push(
-                        `ERROR: Form field type "${type}" is unsupported. Contact admin`
-                    );
-                    break;
-            }
+            fields[type].forEach(fieldName => {
+                if (!isInForm(fieldName)) {
+                    errors.push(`ERROR: Could not find field with name "${fieldName}" in form. Contact admin`);
+                } else {
+                    switch(type) {
+                        case "text":
+                            input[fieldName] = new claimText(fieldName);
+                            break;
+                        case "bool":
+                            input[fieldName] = (form.elements[fieldName].value === "true");
+                            break;
+                        default:
+                            errors.push(`ERROR: Form field type "${type}" is unsupported. Contact admin`);
+                            break;
+                    }
+                }
+            });
         }
     }
 
