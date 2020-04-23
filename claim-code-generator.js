@@ -6,11 +6,11 @@ Purpose: Convert member-provided answers from the associated form into the code 
 
     const runBtn = document.getElementById("js-claim-generator-run");
 
-    // get a handle on the place the code needs to go
+    // get a handle on the place the resulting code needs to go
     const resultBox = document
         .getElementById("js-claim-generator-result")
         .querySelector("code"); // TODO: demo version, comment out when actually using
-        // .querySelector("td#code"); // TODO: real version
+        // .querySelector("td#code"); // TODO: real version, works with Jcink's [code] tags
 
     const formId = runBtn.getAttribute("form");
     const form = document.getElementById(formId);
@@ -37,6 +37,7 @@ Purpose: Convert member-provided answers from the associated form into the code 
     function formatBold(content) { return `${boldOpen}${content}${boldClose}`; }
     function formatUrl(address) { return `${leftBracket}url="${address}"${rightBracket}${address}${leftBracket}/url${rightBracket}`; }
 
+    // TODO: names of form fields (as specified by the "name" attribute in the html)
     let expectedFormFields = {
         text: [
             "characterName"
@@ -58,6 +59,7 @@ Purpose: Convert member-provided answers from the associated form into the code 
     let input = {};
     let errors = [];
 
+    // data needed from text fields
     class textInput {
         constructor(name) {
             this.value = form.elements[name].value;
@@ -107,7 +109,7 @@ Purpose: Convert member-provided answers from the associated form into the code 
             }
         }
 
-        // check for context-sensitive errors
+        // TODO: check for context-sensitive errors (e.g. if member group is A, members need to also have provided B)
         if (
             input.memberGroup.value == "scientist"
             && input.isNewLab
@@ -126,6 +128,7 @@ Purpose: Convert member-provided answers from the associated form into the code 
         }
     }
 
+    // TODO: update function contents to match the actual claim codes needed for the site
     function fillInClaims() {
         let faceClaim = 
 `<div class="claim-row">
@@ -177,6 +180,7 @@ ${input.isLabLead ? "" : occupationClaim}`;
         }
     }
 
+    // TODO: update to create the post you want members to reply with
     function compileClaimPost(claims) {
         let faceClaim = claims.faceClaim;
         let occupationClaim = claims.occupationClaim;
