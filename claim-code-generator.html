@@ -1,114 +1,120 @@
 <script defer src="claim-code-generator.js"></script>
 <link rel="stylesheet" href="claim-code-generator.css">
 
-<article class="generator-container">
-    <h1>Claim Code Generator</h1>
+<article class="magrathea-tool vogsphere">
+    <h2>Vogsphere, the Claim Code Generator</h2>
 
-    <p>You can generate the code you need for claims by using the following form. Copy the result and post it as is, no changes required. <b>Please use proper case in all fields!</b></p>
+    <p>You can generate the code you need for claims using the following form. Copy the result and post it as is, no changes required. <strong>Please use proper case in all fields!</strong></p>
 
-    <form id="form-claim-code-generator" class="form-claim-generator">
-        <fieldset>
-            <legend>
-                <h2>Basics</h2>
-            </legend>
+    <form id="js-vogsphere__form" class="__form">
+        <section class="__section">
+            <h3 class="__section-name">Basics</h3>
 
-            <label for="claim-generator-name">Character Name</label>
-            <input id="claim-generator-name" class="textinput" name="characterName" type="text" required>
+            <label for="vogsphere__character-name" class="__label">
+                Character Name
+                <input id="vogsphere__character-name" class="__input-set" name="characterName" type="text" required>
+            </label>
 
-            <label for="claim-generator-group">Member Group</label>
-            <select id="claim-generator-group" name="memberGroup" required>
+            <label for="vogsphere__member-group" class="__label">Member Group</label>
+            <select id="vogsphere__member-group" class="__input-set" name="memberGroup" required>
                 <option value="">--Please choose an option--</option>
                 <option value="crew">Crew</option>
                 <option value="scientist">Scientist</option>
                 <option value="passenger">Passenger</option>
             </select>
 
-            <label for="claim-generator-url">Profile URL</label>
-            <input id="claim-generator-url" class="textinput" name="profileUrl" type="text" required>
+            <label for="vogsphere__profile-url" class="__label">Profile URL</label>
+            <input id="vogsphere__profile-url" class="__input-set" name="profileUrl" type="text" required>
 
-            <label for="claim-generator-alias">Writer Alias</label>
-            <input id="claim-generator-alias" class="textinput" name="writerAlias" type="text" required>
+            <label for="vogsphere__writer-alias" class="__label">Writer Alias</label>
+            <input id="vogsphere__writer-alias" class="__input-set" name="writerAlias" type="text" required>
 
-            <label for="claim-generator-face">Face Claim</label>
-            <input id="claim-generator-face" class="textinput" name="faceClaim" type="text" required>
+            <label for="vogsphere__face-claim" class="__label">Face Claim</label>
+            <input id="vogsphere__face-claim" class="__input-set" name="faceClaim" type="text" required>
 
-            <label for="claim-generator-occupation">Occupation</label>
-            <input id="claim-generator-occupation" class="textinput" name="occupation" type="text">
-            <div class="label-additional">
+            <label for="vogsphere__occupation" class="__label">Occupation</label>
+            <input id="vogsphere__occupation" class="__input-set" name="occupation" type="text">
+            <div class="__input-help">
                 <ul>
                     <li>If Crew, then occupation on board the Erebus.</li>
                     <li>If Scientist, then type of scientist (e.g. epidemiologist, meteorologist, etc.).</li>
                     <li>If Passenger, then list Earth occupation.</li>
                 </ul>
             </div>
-        </fieldset>
+        </section>
 
-        <fieldset>
-            <legend>
-                <h2>For Scientists</h2>
-                <p class="legend-additional">
-                    For characters in the Scientist member group. Skip this section if not applicable.
-                </p>
-            </legend>
+        <section class="__section">
+            <h3 class="__section-name">For Scientists</h3>
+            <p class="__section-help">
+                For characters in the Scientist member group. Skip this section if not applicable.
+            </p>
 
-            <label for="claim-generator-lab-name">Lab Name</label>
-            <input id="claim-generator-lab-name" class="textinput" name="labName" type="text">
+            <label for="vogsphere__lab-name" class="__label">Lab Name</label>
+            <input id="vogsphere__lab-name" class="__input-set" name="labName" type="text">
 
-            <label>Is this lab already in the Occupation Claim?</label>
-            <div class="input-group">
-                <input id="is-not-new-lab" type="radio" name="isNewLab" value="true">
-                <label for="is-not-new-lab">No</label>
-                <input id="is-new-lab" type="radio" name="isNewLab" value="false" checked>
-                <label for="is-new-lab">Yes</label>
-            </div>
+            <fieldset>
+                <legend>
+                    Is this lab already in the Occupation Claim?
+                </legend>
+                <div class="__input-set __radio-group">
+                    <label>
+                        No
+                        <input type="radio" name="isNewLab" value="true">
+                    </label>
+                    <label>
+                        Yes
+                        <input type="radio" name="isNewLab" value="false" checked>
+                    </label>
+                </div>
+            </fieldset>
 
-            <label>Is this character their lab's Lead Scientist?</label>
-            <div class="input-group">
-                <input id="is-not-lab-lead" type="radio" name="isLabLead" value="false" checked>
-                <label for="is-not-lab-lead">No</label>
-                <input id="is-lab-lead" type="radio" name="isLabLead" value="true">
-                <label for="is-lab-lead">Yes</label>
-            </div>
+            <fieldset>
+                <legend>
+                    Is this lab already in the Occupation Claim?
+                </legend>
+                <div class="__input-set __radio-group">
+                    <input id="vogsphere__is-not-lab-lead" type="radio" name="isLabLead" value="false" checked>
+                    <label for="vogsphere__is-not-lab-lead">No</label>
+                    <input id="vogsphere__is-lab-lead" type="radio" name="isLabLead" value="true">
+                    <label for="vogsphere__is-lab-lead">Yes</label>
+                </div>
+            </fieldset>
 
-            <label for="claim-generator-lab-desc">Lab Description</label>
-            <div class="label-additional">
+            <label for="vogsphere__lab-desc">Lab Description</label>
+            <div class="__input-help">
                 If this is a new lab to be added to the Occupation Claim, please provide a quick description. Otherwise, leave blank.
             </div>
-            <textarea id="claim-generator-lab-desc" class="textinput" name="labDescription" rows="10"></textarea>
-        </fieldset>
+            <textarea id="vogsphere__lab-desc" class="textinput" name="labDescription" rows="10"></textarea>
+        </section>
 
-        <fieldset>
-            <legend>
-                <h2>Requested Character</h2>
-                <p class="legend-additional">
-                    Leave blank if not applicable.
-                </p>
-            </legend>
+        <section class="__section">
+            <h3 class="__section-name">Requested Character</h3>
+            <p class="__section-help">
+                Leave blank if not applicable.
+            </p>
 
-            <label for="claim-generator-requester">Requested By</label>
-            <input id="claim-generator-requester" class="textinput" name="requester" type="text">
+            <label for="vogsphere__requester">Requested By</label>
+            <input id="vogsphere__requester" class="textinput" name="requester" type="text">
 
-            <label for="claim-generator-request-location">Request Location</label>
-            <input id="claim-generator-request-location" class="textinput" name="requestLocation" type="text">
-        </fieldset>
+            <label for="vogsphere__request-location">Request Location</label>
+            <input id="vogsphere__request-location" class="textinput" name="requestLocation" type="text">
+        </section>
 
-        <button id="js-claim-generator-run" class="forminput button-claim-generator" form="form-claim-code-generator" type="button">Generate Code</button>
+        <button id="js-vogsphere__run" class="forminput __button" form="js-vogsphere__form" type="button">Generate Code</button>
     </form>
+    
+    <div id="js-vogsphere__result" class="__code-box">
+        <!-- TODO: demo only, remove starting here... -->
+        <pre><code>
+            
+        </code></pre>
+        <!-- ...ending here -->
 
-    <!-- TODO: uncomment following to use -->
-    <!-- <div id="claim-generator-result">
-        [/dohtml]
+        <!-- TODO: uncomment following to use -->
+        <!-- [/dohtml]
         [code]
         [/code]
-        [dohtml]
-    </div> -->
-
-    <!-- TODO: demo only, remove starting here... -->
-    <div id="js-claim-generator-result">
-        <pre><code>
-
-        </code></pre>
+        [dohtml] -->
     </div>
-    <!-- ...ending here -->
 
 </article>
