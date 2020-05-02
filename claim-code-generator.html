@@ -10,10 +10,8 @@
         <section class="__section">
             <h3 class="__section-name">Basics</h3>
 
-            <label for="vogsphere__character-name" class="__label">
-                Character Name
-                <input id="vogsphere__character-name" class="__input-set" name="characterName" type="text" required>
-            </label>
+            <label for="vogsphere__character-name" class="__label">Character Name</label>
+            <input id="vogsphere__character-name" class="__input-set" name="characterName" type="text" required>
 
             <label for="vogsphere__member-group" class="__label">Member Group</label>
             <select id="vogsphere__member-group" class="__input-set" name="memberGroup" required>
@@ -52,39 +50,37 @@
             <label for="vogsphere__lab-name" class="__label">Lab Name</label>
             <input id="vogsphere__lab-name" class="__input-set" name="labName" type="text">
 
-            <fieldset>
-                <legend>
+            <fieldset class="__radio-container">
+                <legend class="__radio-help">
                     Is this lab already in the Occupation Claim?
                 </legend>
-                <div class="__input-set __radio-group">
-                    <label>
-                        No
-                        <input type="radio" name="isNewLab" value="true">
-                    </label>
-                    <label>
-                        Yes
-                        <input type="radio" name="isNewLab" value="false" checked>
-                    </label>
+                <div class="__radio-input-container">
+                    <input id="vogsphere__is-new-lab" type="radio" name="isNewLab" value="true">
+                    <label for="vogsphere__is-new-lab">No</label>
+
+                    <input id="vogsphere__is-not-new-lab" type="radio" name="isNewLab" value="false" checked>
+                    <label for="vogsphere__is-not-new-lab">Yes</label>
                 </div>
             </fieldset>
 
-            <fieldset>
-                <legend>
+            <fieldset class="__radio-container">
+                <legend class="__radio-help">
                     Is this lab already in the Occupation Claim?
                 </legend>
-                <div class="__input-set __radio-group">
+                <div class="__radio-input-container">
                     <input id="vogsphere__is-not-lab-lead" type="radio" name="isLabLead" value="false" checked>
                     <label for="vogsphere__is-not-lab-lead">No</label>
+
                     <input id="vogsphere__is-lab-lead" type="radio" name="isLabLead" value="true">
                     <label for="vogsphere__is-lab-lead">Yes</label>
                 </div>
             </fieldset>
 
-            <label for="vogsphere__lab-desc">Lab Description</label>
+            <label for="vogsphere__lab-desc" class="__label">Lab Description</label>
             <div class="__input-help">
                 If this is a new lab to be added to the Occupation Claim, please provide a quick description. Otherwise, leave blank.
             </div>
-            <textarea id="vogsphere__lab-desc" class="textinput" name="labDescription" rows="10"></textarea>
+            <textarea id="vogsphere__lab-desc" class="__input-set" name="labDescription" rows="10"></textarea>
         </section>
 
         <section class="__section">
@@ -93,17 +89,17 @@
                 Leave blank if not applicable.
             </p>
 
-            <label for="vogsphere__requester">Requested By</label>
-            <input id="vogsphere__requester" class="textinput" name="requester" type="text">
+            <label for="vogsphere__requester" class="__label">Requested By</label>
+            <input id="vogsphere__requester" class="__input-set" name="requester" type="text">
 
-            <label for="vogsphere__request-location">Request Location</label>
-            <input id="vogsphere__request-location" class="textinput" name="requestLocation" type="text">
+            <label for="vogsphere__request-location" class="__label">Request Location</label>
+            <input id="vogsphere__request-location" class="__input-set" name="requestLocation" type="text">
         </section>
 
-        <button id="js-vogsphere__run" class="forminput __button" form="js-vogsphere__form" type="button">Generate Code</button>
+        <button id="js-vogsphere__run" class="__run-trigger" form="js-vogsphere__form" type="button">Generate Code</button>
     </form>
     
-    <div id="js-vogsphere__result" class="__code-box">
+    <div id="js-vogsphere__result" class="__result-container">
         <!-- TODO: demo only, remove starting here... -->
         <pre><code>
             
