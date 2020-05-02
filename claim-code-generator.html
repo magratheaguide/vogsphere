@@ -84,16 +84,28 @@
         </section>
 
         <section class="__section">
-            <h3 class="__section-name">Requested Character</h3>
-            <p class="__section-help">
-                Leave blank if not applicable.
-            </p>
+            <h3 class="__section-name">Requested Character?</h3>
+
+            <fieldset class="__radio-container">
+                <legend class="__radio-help">
+                    Is this character part of a request?
+                </legend>
+                <div class="__radio-input-container">
+                    <input id="vogsphere__is-not-requested" type="radio" name="isRequested" value="false">
+                    <label for="vogsphere__is-not-requested">No</label>
+
+                    <input id="vogsphere__is-requested type=" type="radio" name="isRequested" value="true" checked>
+                    <label for="vogsphere__is-requested">Yes</label>
+                </div>
+            </fieldset>
 
             <label for="vogsphere__requester" class="__label">Requested By</label>
             <input id="vogsphere__requester" class="__input-set" name="requester" type="text">
+            <div class="__input-help">Leave blank if not applicable.</div>
 
             <label for="vogsphere__request-location" class="__label">Request Location</label>
             <input id="vogsphere__request-location" class="__input-set" name="requestLocation" type="text">
+            <div class="__input-help">Leave blank if not applicable.</div>
         </section>
 
         <button id="js-vogsphere__run" class="__run-trigger" form="js-vogsphere__form" type="button">Generate Code</button>

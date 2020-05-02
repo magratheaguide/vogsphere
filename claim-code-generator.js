@@ -54,6 +54,7 @@ Purpose: Convert member-provided answers from the associated form into the code 
         bool: [
             "isLabLead"
             , "isNewLab"
+            , "isRequested"
         ]
     };
     let input = {};
@@ -109,15 +110,29 @@ Purpose: Convert member-provided answers from the associated form into the code 
             }
         }
 
+        console.log(`input.isRequested == ${input.isRequested}`);
+        console.log(`!input.requester.value == ${!input.requester.value}`);
+        console.log(`!input.requestLocation.value == ${!input.requestLocation.value}`);
+
+        console.log(`requester == ${input.requester.value}`);
+        console.log(`requestLocation == ${input.requestLocation.value}`);
+
+        // check that information about requester or request location is provided for requested characters
+        if (
+            input.isRequested
+            && !input.requester.value
+            && !input.requestLocation.value
+        ) {
+            errors.push(`ERROR: Requested character, missing who requested or request's location`);
+        }
+
         // TODO: check for context-sensitive errors (e.g. if member group is A, members need to also have provided B)
         if (
             input.memberGroup.value == "scientist"
             && input.isNewLab
             && !input.labDescription.value
         ) {
-            errors.push(
-                `ERROR: Missing lab description`
-            );
+            errors.push(`ERROR: Missing lab description`);
         }
 
         if (
@@ -199,7 +214,7 @@ Add to ${input.labName.value} as ${input.isLabLead ? "Lead" : "Staff"}`
     : ""
 }
 ${codeBbcodeOpen} ${input.isNewLab ? labClaim : occupationClaim} ${codeBbcodeClose} ${
-    input.requester.value || input.requestLocation.value
+    input.isRequested
     ? `
 
 ${formatBold("REQUESTED CHARACTER")} ${
