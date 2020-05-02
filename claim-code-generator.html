@@ -10,33 +10,33 @@
         <section class="__section">
             <h3 class="__section-name">Basics</h3>
 
-            <label for="vogsphere__character-name" class="__label">Character Name</label>
-            <input id="vogsphere__character-name" class="__input-set" name="characterName" type="text" required>
+            <label for="vogsphere__character-name" class="__question">Character Name</label>
+            <input id="vogsphere__character-name" class="__answer" name="characterName" type="text" required>
 
-            <label for="vogsphere__member-group" class="__label">Member Group</label>
-            <select id="vogsphere__member-group" class="__input-set" name="memberGroup" required>
+            <label for="vogsphere__member-group" class="__question">Member Group</label>
+            <select id="vogsphere__member-group" class="__answer" name="memberGroup" required>
                 <option value="">--Please choose an option--</option>
                 <option value="crew">Crew</option>
                 <option value="scientist">Scientist</option>
                 <option value="passenger">Passenger</option>
             </select>
 
-            <label for="vogsphere__profile-url" class="__label">Profile URL</label>
-            <input id="vogsphere__profile-url" class="__input-set" name="profileUrl" type="text" required>
+            <label for="vogsphere__profile-url" class="__question">Profile URL</label>
+            <input id="vogsphere__profile-url" class="__answer" name="profileUrl" type="text" required>
 
-            <label for="vogsphere__writer-alias" class="__label">Writer Alias</label>
-            <input id="vogsphere__writer-alias" class="__input-set" name="writerAlias" type="text" required>
+            <label for="vogsphere__writer-alias" class="__question">Writer Alias</label>
+            <input id="vogsphere__writer-alias" class="__answer" name="writerAlias" type="text" required>
 
-            <label for="vogsphere__face-claim" class="__label">Face Claim</label>
-            <input id="vogsphere__face-claim" class="__input-set" name="faceClaim" type="text" required>
+            <label for="vogsphere__face-claim" class="__question">Face Claim</label>
+            <input id="vogsphere__face-claim" class="__answer" name="faceClaim" type="text" required>
 
-            <label for="vogsphere__occupation" class="__label">Occupation</label>
-            <input id="vogsphere__occupation" class="__input-set" name="occupation" type="text">
-            <div class="__input-help">
-                <ul>
-                    <li>If Crew, then occupation on board the Erebus.</li>
-                    <li>If Scientist, then type of scientist (e.g. epidemiologist, meteorologist, etc.).</li>
-                    <li>If Passenger, then list Earth occupation.</li>
+            <label for="vogsphere__occupation" class="__question">Occupation</label>
+            <input id="vogsphere__occupation" class="__answer" name="occupation" type="text">
+            <div class="__answer-help">
+                <ul class="__list">
+                    <li class="__list-item">If Crew, then occupation on board the Erebus.</li>
+                    <li class="__list-item">If Scientist, then type of scientist (e.g. epidemiologist, meteorologist, etc.).</li>
+                    <li class="__list-item">If Passenger, then list Earth occupation.</li>
                 </ul>
             </div>
         </section>
@@ -47,65 +47,77 @@
                 For characters in the Scientist member group. Skip this section if not applicable.
             </p>
 
-            <label for="vogsphere__lab-name" class="__label">Lab Name</label>
-            <input id="vogsphere__lab-name" class="__input-set" name="labName" type="text">
+            <label for="vogsphere__lab-name" class="__question">Lab Name</label>
+            <input id="vogsphere__lab-name" class="__answer" name="labName" type="text">
 
             <fieldset class="__radio-container">
-                <legend class="__radio-help">
+                <legend class="__radio-question">
                     Is this lab already in the Occupation Claim?
                 </legend>
-                <div class="__radio-input-container">
-                    <input id="vogsphere__is-new-lab" type="radio" name="isNewLab" value="true">
-                    <label for="vogsphere__is-new-lab">No</label>
+                <div class="__radio-answer-container">
+                    <label for="vogsphere__is-new-lab" class="__radio-answer">
+                        <input id="vogsphere__is-new-lab" type="radio" name="isNewLab" value="true">
+                        No
+                    </label>
 
-                    <input id="vogsphere__is-not-new-lab" type="radio" name="isNewLab" value="false" checked>
-                    <label for="vogsphere__is-not-new-lab">Yes</label>
+                    <label for="vogsphere__is-not-new-lab" class="__radio-answer">
+                        <input id="vogsphere__is-not-new-lab" type="radio" name="isNewLab" value="false" checked>
+                        Yes
+                    </label>
                 </div>
             </fieldset>
 
             <fieldset class="__radio-container">
-                <legend class="__radio-help">
+                <legend class="__radio-question">
                     Is this lab already in the Occupation Claim?
                 </legend>
-                <div class="__radio-input-container">
-                    <input id="vogsphere__is-not-lab-lead" type="radio" name="isLabLead" value="false" checked>
-                    <label for="vogsphere__is-not-lab-lead">No</label>
+                <div class="__radio-answer-container">
+                    <label for="vogsphere__is-not-lab-lead" class="__radio-answer">
+                        <input id="vogsphere__is-not-lab-lead" type="radio" name="isLabLead" value="false" checked>
+                        No
+                    </label>
 
-                    <input id="vogsphere__is-lab-lead" type="radio" name="isLabLead" value="true">
-                    <label for="vogsphere__is-lab-lead">Yes</label>
+                    <label for="vogsphere__is-lab-lead" class="__radio-answer">
+                        <input id="vogsphere__is-lab-lead" type="radio" name="isLabLead" value="true">
+                        Yes
+                    </label>
                 </div>
             </fieldset>
 
-            <label for="vogsphere__lab-desc" class="__label">Lab Description</label>
-            <div class="__input-help">
+            <label for="vogsphere__lab-desc" class="__question">Lab Description</label>
+            <div class="__answer-help">
                 If this is a new lab to be added to the Occupation Claim, please provide a quick description. Otherwise, leave blank.
             </div>
-            <textarea id="vogsphere__lab-desc" class="__input-set" name="labDescription" rows="10"></textarea>
+            <textarea id="vogsphere__lab-desc" class="__answer" name="labDescription" rows="10"></textarea>
         </section>
 
         <section class="__section">
             <h3 class="__section-name">Requested Character?</h3>
 
             <fieldset class="__radio-container">
-                <legend class="__radio-help">
+                <legend class="__radio-question">
                     Is this character part of a request?
                 </legend>
-                <div class="__radio-input-container">
-                    <input id="vogsphere__is-not-requested" type="radio" name="isRequested" value="false">
-                    <label for="vogsphere__is-not-requested">No</label>
+                <div class="__radio-answer-container">
+                    <label for="vogsphere__is-not-requested" class="__radio-answer">
+                        <input id="vogsphere__is-not-requested" type="radio" name="isRequested" value="false">
+                        No
+                    </label>
 
-                    <input id="vogsphere__is-requested type=" type="radio" name="isRequested" value="true" checked>
-                    <label for="vogsphere__is-requested">Yes</label>
+                    <label for="vogsphere__is-requested" class="__radio-answer">
+                        <input id="vogsphere__is-requested type=" type="radio" name="isRequested" value="true" checked>
+                        Yes
+                    </label>
                 </div>
             </fieldset>
 
-            <label for="vogsphere__requester" class="__label">Requested By</label>
-            <input id="vogsphere__requester" class="__input-set" name="requester" type="text">
-            <div class="__input-help">Leave blank if not applicable.</div>
+            <label for="vogsphere__requester" class="__question">Requested By</label>
+            <input id="vogsphere__requester" class="__answer" name="requester" type="text">
+            <div class="__answer-help">Leave blank if not applicable.</div>
 
-            <label for="vogsphere__request-location" class="__label">Request Location</label>
-            <input id="vogsphere__request-location" class="__input-set" name="requestLocation" type="text">
-            <div class="__input-help">Leave blank if not applicable.</div>
+            <label for="vogsphere__request-location" class="__question">Request Location</label>
+            <input id="vogsphere__request-location" class="__answer" name="requestLocation" type="text">
+            <div class="__answer-help">Leave blank if not applicable.</div>
         </section>
 
         <button id="js-vogsphere__run" class="__run-trigger" form="js-vogsphere__form" type="button">Generate Code</button>

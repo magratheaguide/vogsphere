@@ -1,4 +1,5 @@
-:root {
+.magrathea-tool.vogsphere {
+    /* font sizes */
     --font-size-xs: 0.75rem;
     --font-size-s: 0.875rem;
     --font-size-m: 1rem;
@@ -6,26 +7,109 @@
     --font-size-xl: 2rem;
     --font-size-xxl: 3rem;
 
+    /* spacers */
     --gap-xs: 4px;
     --gap-s: 8px;
     --gap-m: 16px;
     --gap-l: 32px;
     --gap-xl: 64px;
 
-    --max-post-width: 55ch;
-    --max-post-width-styled: 75ch;
+    --space-s: 0.5em;
+    --space-m: 1em;
+    --space-l: 1.5em;
+
+    /* comfortable reading widths */
+    --min-read-width: 55ch;
+    --max-read-width: 75ch;
+
+    background: teal;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: var(--max-read-width);
 }
 
-#claim-generator-result { overflow-x: auto; }
+.magrathea-tool.vogsphere *,
+.magrathea-tool.vogsphere *::before,
+.magrathea-tool.vogsphere *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-.form-claim-generator {
+/* start owls */
+.magrathea-tool.vogsphere * + * {
+    margin-top: 1.5em;
+    margin-bottom: 0;
+}
+
+.magrathea-tool.vogsphere .__list * + *
+, .magrathea-tool.vogsphere .__radio-container * + * {
+    margin-top: var(--space-s);
+}
+/* end owls */
+
+.magrathea-tool.vogsphere .__answer + .__answer-help {
+    margin-top: var(--space-s);
+}
+
+.magrathea-tool.vogsphere .__form {
+    background: pink;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: var(--min-read-width);
+}
+
+.magrathea-tool.vogsphere .__list {
+    padding-left: 1em;
+}
+
+.magrathea-tool.vogsphere .__radio-answer-container {
+    align-items: end;
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: var(--space-m);
+    margin-top: 0;
+    justify-content: end;
+}
+
+.magrathea-tool.vogsphere .__radio-container {
+    border: none;
+}
+
+/* .magrathea-tool.vogsphere .__radio-answer-container
+, .magrathea-tool.vogsphere .__section */
+.magrathea-tool.vogsphere .__section {
+    display: grid;
+    grid-gap: 0 var(--space-m);
+    grid-template-columns: 
+        [full-start indent-start] var(--space-m)
+        [indent-end question-start] 2fr
+        [question-end answer-start] 3fr
+        [full-end]
+    ;
+}
+.magrathea-tool.vogsphere .__answer { grid-column: answer; }
+.magrathea-tool.vogsphere .__answer-help { grid-column: answer; }
+.magrathea-tool.vogsphere .__question { grid-column: question; }
+/* .magrathea-tool.vogsphere .__radio-answer { grid-column: answer; } */
+.magrathea-tool.vogsphere .__radio-container { grid-column: question / answer; }
+.magrathea-tool.vogsphere .__section-help { grid-column: full; }
+.magrathea-tool.vogsphere .__section-name { grid-column: full; }
+
+/* .magrathea-tool.vogsphere .__button {
+    border: 1px solid;
+    overflow-x: auto;
+    padding: 1em;
+}
+
+.magrathea-tool.vogsphere .__form {
     display: block;
     margin-right: auto;
     margin-left: auto;
     max-width: var(--max-post-width);
 }
 
-.form-claim-generator fieldset {
+.magrathea-tool.vogsphere .__section {
     border: none;
     display: grid;
     grid-gap: var(--gap-m);
@@ -33,23 +117,17 @@
     margin: var(--gap-m) auto;
     padding: 0;
 }
-.form-claim-generator fieldset > label { grid-column: 2; }
-.form-claim-generator fieldset > .label-additional { grid-column: 3 / -1; }
-.form-claim-generator fieldset > legend { grid-column: 1 / -1; }
-.form-claim-generator fieldset > :not(label):not(legend) { grid-column: 3; align-self: start; }
+.magrathea-tool.vogsphere .__section > label { grid-column: 2; }
+.magrathea-tool.vogsphere .__section > .vogsphere__label-detail { grid-column: 3 / -1; }
+.magrathea-tool.vogsphere .__section > legend { grid-column: 1 / -1; }
+.magrathea-tool.vogsphere .__section > :not(label):not(legend) { grid-column: 3; align-self: start; }
 
-.form-claim-generator .button-claim-generator {
+.magrathea-tool.vogsphere .vogsphere__button {
     display: block;
     font-size: var(--font-size-m);
     margin: var(--gap-l) auto;
 }
 
-.form-claim-generator .label-additional { font-size: var(--font-size-s); }
+.magrathea-tool.vogsphere .vogsphere__label-detail { font-size: var(--font-size-s); }
 
-.form-claim-generator .label-additional ul { margin-top: 0; padding-left: var(--gap-m); }
-
-.generator-container {
-    margin-right: auto;
-    margin-left: auto;
-    max-width: var(--max-post-width-styled);
-}
+.magrathea-tool.vogsphere .vogsphere__label-detail ul { margin-top: 0; padding-left: var(--gap-m); } */
