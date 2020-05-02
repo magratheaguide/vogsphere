@@ -116,7 +116,7 @@ Purpose: Convert member-provided answers from the associated form into the code 
             && !input.requester.value
             && !input.requestLocation.value
         ) {
-            errors.push(`ERROR: Requested character, missing who requested or request's location`);
+            errors.push("ERROR: Requested character, missing who requested or request's location");
         }
 
         // TODO: check for context-sensitive errors (e.g. if member group is A, members need to also have provided B)
@@ -125,14 +125,14 @@ Purpose: Convert member-provided answers from the associated form into the code 
             && input.isNewLab
             && !input.labDescription.value
         ) {
-            errors.push(`ERROR: Missing lab description`);
+            errors.push("ERROR: Missing lab description");
         }
 
         if (
             input.memberGroup.value == "scientist"
             && !input.labName.value
         ) {
-            errors.push(`ERROR: Missing name of lab`);
+            errors.push("ERROR: Missing name of lab");
         }
     }
 
@@ -185,7 +185,7 @@ ${input.isLabLead ? "" : occupationClaim}`;
             faceClaim: faceClaim
             , occupationClaim: occupationClaim
             , labClaim: labClaim
-        }
+        };
     }
 
     // TODO: update to create the post you want members to reply with
