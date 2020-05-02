@@ -4,11 +4,11 @@ Purpose: Convert member-provided answers from the associated form into the code 
 (function () {
     "use strict";
 
-    const runBtn = document.getElementById("js-claim-generator-run");
+    const runBtn = document.getElementById("js-vogsphere__run");
 
     // get a handle on the place the resulting code needs to go
     const resultBox = document
-        .getElementById("js-claim-generator-result")
+        .getElementById("js-vogsphere__result")
         .querySelector("code"); // TODO: demo version, comment out when actually using
         // .querySelector("td#code"); // TODO: real version, works with Jcink's [code] tags
 
