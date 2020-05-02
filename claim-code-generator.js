@@ -110,13 +110,6 @@ Purpose: Convert member-provided answers from the associated form into the code 
             }
         }
 
-        console.log(`input.isRequested == ${input.isRequested}`);
-        console.log(`!input.requester.value == ${!input.requester.value}`);
-        console.log(`!input.requestLocation.value == ${!input.requestLocation.value}`);
-
-        console.log(`requester == ${input.requester.value}`);
-        console.log(`requestLocation == ${input.requestLocation.value}`);
-
         // check that information about requester or request location is provided for requested characters
         if (
             input.isRequested
