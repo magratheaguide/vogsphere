@@ -11,13 +11,13 @@
     box-sizing: border-box;
     margin-right: auto;
     margin-left: auto;
-    padding: var(--gap-l) 0;
     max-width: var(--measure);
+    padding: var(--gap-l) 0;
 }
 
 /********************************************* GLOBAL */
 .magrathea-tool.vogsphere *
-, .magrathea-tool.vogsphere *::before 
+, .magrathea-tool.vogsphere *::before
 , .magrathea-tool.vogsphere *::after {
     box-sizing: border-box;
 }
@@ -27,6 +27,7 @@
 }
 
 /********************************************* ELEMENTS */
+
 /* shared styles */
 .magrathea-tool.vogsphere input
 , .magrathea-tool.vogsphere select
@@ -64,9 +65,9 @@
 }
 
 .magrathea-tool.vogsphere ul.--minimal {
+    list-style-type: none;
     margin-top: var(--gap-xs);
     margin-bottom: var(--gap-xs);
-    list-style-type: none;
 }
 
 /********************************************* COMPONENTS */

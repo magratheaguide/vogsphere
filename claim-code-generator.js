@@ -15,9 +15,7 @@ Purpose: Convert member-provided answers from the associated form into the code 
     const formId = runBtn.getAttribute("form");
     const form = document.getElementById(formId);
 
-    const indent1 = "    ";
     const newline = "\n";
-    const newlineDouble = "\n\n";
 
     // square brackets must be escaped or else they get processed right away by Jcink
     const leftBracket = "&#91;";
