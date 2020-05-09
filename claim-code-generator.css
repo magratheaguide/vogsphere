@@ -27,6 +27,14 @@
 }
 
 /********************************************* ELEMENTS */
+/* shared styles */
+.magrathea-tool.vogsphere input
+, .magrathea-tool.vogsphere select
+, .magrathea-tool.vogsphere textarea {
+    font: inherit;
+}
+
+/* individual styles */
 .magrathea-tool.vogsphere button {
     border: 1px outset;
     display: block;
@@ -63,6 +71,7 @@
 
 /********************************************* COMPONENTS */
 .magrathea-tool.vogsphere .__input-group {
+    align-items: center;
     display: grid;
     grid-template-columns: 1fr 2fr;
 }
