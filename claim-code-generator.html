@@ -8,14 +8,14 @@
     <p>You can generate the code you need for claims using the following form. Copy the result and post it as is, no changes required. <strong>Please use proper case in all fields!</strong></p>
 
     <section>
-        <h3 class="__section-name">Basics</h3>
+        <h3>Basics</h3>
 
-        <div class="__field-set">
+        <div class="__input-group">
             <label for="vogsphere__character-name">Character Name</label>
             <input id="vogsphere__character-name" name="characterName" type="text" required>
         </div>
 
-        <div class="__field-set">
+        <div class="__input-group">
             <label for="vogsphere__member-group">Member Group</label>
             <select id="vogsphere__member-group" name="memberGroup" required>
                 <option value="">--Please choose an option--</option>
@@ -25,27 +25,25 @@
             </select>
         </div>
 
-        <div class="__field-set">
+        <div class="__input-group">
             <label for="vogsphere__profile-url">Profile URL</label>
             <input id="vogsphere__profile-url" name="profileUrl" type="text" required>
         </div>
 
-        <div class="__field-set">
+        <div class="__input-group">
             <label for="vogsphere__writer-alias">Writer Alias</label>
             <input id="vogsphere__writer-alias" name="writerAlias" type="text" required>
         </div>
 
-        <div class="__field-set">
+        <div class="__input-group">
             <label for="vogsphere__face-claim">Face Claim</label>
             <input id="vogsphere__face-claim" name="faceClaim" type="text" required>
         </div>
 
-        <div class="__field-set">
-            <label for="vogsphere__occupation">
-                Occupation
-            </label>
+        <div class="__input-group">
+            <label for="vogsphere__occupation">Occupation</label>
             <input id="vogsphere__occupation" name="occupation" type="text" aria-describedby="vogsphere__occupation-help">
-            <ul id="vogsphere__occupation-help" class="__help">
+            <ul id="vogsphere__occupation-help" class="--aside">
                 <li>If Crew, then occupation on board the Erebus.</li>
                 <li>If Scientist, then type of scientist (e.g. epidemiologist, meteorologist, etc.).</li>
                 <li>If Passenger, then list Earth occupation.</li>
@@ -54,12 +52,12 @@
     </section>
 
     <section>
-        <h3 class="__section-name">For Scientists</h3>
-        <p class="__help">
+        <h3>For Scientists</h3>
+        <p>
             For characters in the Scientist member group. Skip this section if not applicable.
         </p>
 
-        <div class="__field-set">
+        <div class="__input-group">
             <label for="vogsphere__lab-name">Lab Name</label>
             <input id="vogsphere__lab-name" name="labName" type="text">
         </div>
@@ -68,7 +66,7 @@
             <legend>
                 Is this lab already in the Occupation Claim?
             </legend>
-            <ul class="--list-style-none">
+            <ul class="--minimal">
                 <li>
                     <label for="vogsphere__is-new-lab">
                         <input id="vogsphere__is-new-lab" type="radio" name="isNewLab" value="true">
@@ -88,7 +86,7 @@
             <legend>
                 Is this character their lab's Lead Scientist?
             </legend>
-            <ul class="--list-style-none">
+            <ul class="--minimal">
                 <li>
                     <label for="vogsphere__is-not-lab-lead">
                         <input id="vogsphere__is-not-lab-lead" type="radio" name="isLabLead" value="false" checked>
@@ -104,27 +102,25 @@
             </ul>
         </fieldset>    
     
-        <div class="__field-set">
-            <label for="vogsphere__lab-desc">
-                Lab Description
-            </label>
-            <ul id="vogsphere__lab-desc-help" class="__help">
+        <div class="__input-group">
+            <label for="vogsphere__lab-desc">Lab Description</label>
+            <ul id="vogsphere__lab-desc-help" class="--full">
                 <li>
                     If this is a new lab to be added to the Occupation Claim, please provide a quick description. Otherwise, leave blank.
                 </li>
             </ul>
-            <textarea id="vogsphere__lab-desc" name="labDescription" rows="5" aria-describedby="vogsphere__lab-desc-help"></textarea>
+            <textarea id="vogsphere__lab-desc" name="labDescription" class="--full" rows="5" aria-describedby="vogsphere__lab-desc-help"></textarea>
         </div>
     </section>
 
     <section>
-        <h3 class="__section-name">Requested Character?</h3>
+        <h3>Requested Character?</h3>
 
         <fieldset>
             <legend>
                 Is this character part of a request?
             </legend>
-            <ul class="--list-style-none">
+            <ul class="--minimal">
                 <li>
                     <label for="vogsphere__is-not-requested">
                         <input id="vogsphere__is-not-requested" type="radio" name="isRequested" value="false">
@@ -133,27 +129,23 @@
                 </li>
                 <li>
                     <label for="vogsphere__is-requested">
-                        <input id="vogsphere__is-requested type=" type="radio" name="isRequested" value="true" checked>
+                        <input id="vogsphere__is-requested" type="radio" name="isRequested" value="true" checked>
                         Yes
                     </label>
                 </li>
             </ul>
         </fieldset>
 
-        <div class="__field-set">
-            <label for="vogsphere__requester">
-                Requested By
-            </label>
+        <div class="__input-group">
+            <label for="vogsphere__requester">Requested By</label>
             <input id="vogsphere__requester" name="requester" type="text" aria-describedby="vogsphere__requester-help">
-            <div id="vogsphere__requester-help" class="__help">Leave blank if not applicable.</div>
+            <div id="vogsphere__requester-help">Leave blank if not applicable.</div>
         </div>
 
-        <div class="__field-set">
-            <label for="vogsphere__request-location">
-                Request Location
-            </label>
+        <div class="__input-group">
+            <label for="vogsphere__request-location">Request Location</label>
             <input id="vogsphere__request-location" name="requestLocation" type="text" aria-describedby="vogsphere__request-location-help">
-            <div id="vogsphere__request-location-help" class="__help">Leave blank if not applicable.</div>
+            <div id="vogsphere__request-location-help">Leave blank if not applicable.</div>
         </div>
     </section>
 
@@ -161,13 +153,11 @@
         <button id="js-vogsphere__run" form="js-vogsphere__form" type="button">Generate Code</button>
     </section>
 
-    <section id="js-vogsphere__result" class="__result-container">
+    <section id="js-vogsphere__result">
         <h3>Result</h3>
 
         <!-- TODO: demo only, remove starting here... -->
-        <pre><code>
-            Claim code will be shown here.
-        </code></pre>
+        <pre><code>Claim code will be shown here.</code></pre>
         <!-- ...ending here -->
 
         <!-- TODO: uncomment following to use -->
