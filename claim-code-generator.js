@@ -116,7 +116,7 @@ Purpose: Convert member-provided answers from the associated form into the code 
             && !input.requester.value
             && !input.requestLocation.value
         ) {
-            errors.push("ERROR: Requested character, missing who requested or request's location");
+            errors.push("ERROR: Requested character, need requester name or request location");
         }
 
         // TODO: check for context-sensitive errors (e.g. if member group is A, members need to also have provided B)
