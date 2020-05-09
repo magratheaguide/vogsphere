@@ -1,4 +1,4 @@
-# Claim Code Generator
+# Vogsphere, the Claim Code Generator
 
 ## What is it?
 
