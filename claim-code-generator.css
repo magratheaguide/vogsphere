@@ -1,133 +1,120 @@
 .magrathea-tool.vogsphere {
-    /* font sizes */
-    --font-size-xs: 0.75rem;
-    --font-size-s: 0.875rem;
-    --font-size-m: 1rem;
-    --font-size-l: 1.5rem;
-    --font-size-xl: 2rem;
-    --font-size-xxl: 3rem;
+    --golden-ratio: 1.618;
+    --line-height: 1.5;
 
     /* spacers */
-    --gap-xs: 4px;
-    --gap-s: 8px;
-    --gap-m: 16px;
-    --gap-l: 32px;
-    --gap-xl: 64px;
+    --space-m: calc(var(--line-height) * 1em);
+    --space-s: calc(var(--space-m) / var(--golden-ratio));
+    --space-l: calc(var(--space-m) * var(--golden-ratio));
 
-    --space-s: 0.5em;
-    --space-m: 1em;
-    --space-l: 1.5em;
+    /* comfortable reading width */
+    --measure: 60ch; /* https://en.wikipedia.org/wiki/Line_length */
 
-    /* comfortable reading widths */
-    --min-read-width: 55ch;
-    --max-read-width: 75ch;
-
-    background: teal;
     margin-right: auto;
     margin-left: auto;
-    max-width: var(--max-read-width);
+    max-width: var(--measure);
 }
 
-.magrathea-tool.vogsphere *,
-.magrathea-tool.vogsphere *::before,
-.magrathea-tool.vogsphere *::after {
+.magrathea-tool.vogsphere *
+, .magrathea-tool.vogsphere *::before
+, .magrathea-tool.vogsphere *::after {
     box-sizing: border-box;
+    /* line-height: 1.5; */
     margin: 0;
     padding: 0;
 }
 
-/* start owls */
 .magrathea-tool.vogsphere * + * {
-    margin-top: 1.5em;
-    margin-bottom: 0;
+    margin-top: var(--space-m);
 }
 
-.magrathea-tool.vogsphere .__list * + *
-, .magrathea-tool.vogsphere .__radio-container * + * {
-    margin-top: var(--space-s);
-}
-/* end owls */
-
-.magrathea-tool.vogsphere .__answer + .__answer-help {
-    margin-top: var(--space-s);
-}
-
-.magrathea-tool.vogsphere .__form {
-    background: pink;
+.magrathea-tool.vogsphere button {
+    border: 1px outset;
+    display: block;
+    font: inherit;
     margin-right: auto;
     margin-left: auto;
-    max-width: var(--min-read-width);
+    padding: 0.25em;
 }
 
-.magrathea-tool.vogsphere .__list {
-    padding-left: 1em;
+.magrathea-tool.vogsphere fieldset {
+    border: none;
 }
 
-.magrathea-tool.vogsphere .__radio-answer-container {
-    align-items: end;
-    display: grid;
-    grid-auto-flow: column;
-    grid-gap: var(--space-m);
+.magrathea-tool.vogsphere input
+, .magrathea-tool.vogsphere select {
     margin-top: 0;
-    justify-content: end;
 }
 
-.magrathea-tool.vogsphere .__radio-container {
-    border: none;
+.magrathea-tool.vogsphere li {
+    margin-left: var(--space-l);
 }
 
-/* .magrathea-tool.vogsphere .__radio-answer-container
-, .magrathea-tool.vogsphere .__section */
-.magrathea-tool.vogsphere .__section {
-    display: grid;
-    grid-gap: 0 var(--space-m);
-    grid-template-columns: 
-        [full-start indent-start] var(--space-m)
-        [indent-end question-start] 2fr
-        [question-end answer-start] 3fr
-        [full-end]
-    ;
+.magrathea-tool.vogsphere li:not(:first-child)
+, .magrathea-tool.vogsphere fieldset ul
+, .magrathea-tool.vogsphere .__help {
+    margin-top: var(--space-s);
 }
-.magrathea-tool.vogsphere .__answer { grid-column: answer; }
-.magrathea-tool.vogsphere .__answer-help { grid-column: answer; }
-.magrathea-tool.vogsphere .__question { grid-column: question; }
-/* .magrathea-tool.vogsphere .__radio-answer { grid-column: answer; } */
-.magrathea-tool.vogsphere .__radio-container { grid-column: question / answer; }
-.magrathea-tool.vogsphere .__section-help { grid-column: full; }
-.magrathea-tool.vogsphere .__section-name { grid-column: full; }
 
-/* .magrathea-tool.vogsphere .__button {
+.magrathea-tool.vogsphere ul.--list-style-none {
+    list-style-type: none;
+}
+
+.magrathea-tool.vogsphere pre {
     border: 1px solid;
-    overflow-x: auto;
-    padding: 1em;
+    overflow: auto;
+    padding: 0.5em;
 }
 
-.magrathea-tool.vogsphere .__form {
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-    max-width: var(--max-post-width);
-}
-
-.magrathea-tool.vogsphere .__section {
-    border: none;
+.magrathea-tool.vogsphere .__field-set
+, .magrathea-tool.vogsphere fieldset {
     display: grid;
-    grid-gap: var(--gap-m);
-    grid-template-columns: auto 2fr 3fr;
-    margin: var(--gap-m) auto;
-    padding: 0;
-}
-.magrathea-tool.vogsphere .__section > label { grid-column: 2; }
-.magrathea-tool.vogsphere .__section > .vogsphere__label-detail { grid-column: 3 / -1; }
-.magrathea-tool.vogsphere .__section > legend { grid-column: 1 / -1; }
-.magrathea-tool.vogsphere .__section > :not(label):not(legend) { grid-column: 3; align-self: start; }
-
-.magrathea-tool.vogsphere .vogsphere__button {
-    display: block;
-    font-size: var(--font-size-m);
-    margin: var(--gap-l) auto;
+    grid-template-columns: 1fr minmax(20ch, 2fr);
+    margin-left: var(--space-m);
 }
 
-.magrathea-tool.vogsphere .vogsphere__label-detail { font-size: var(--font-size-s); }
+.magrathea-tool.vogsphere .__field-set > .__help
+, .magrathea-tool.vogsphere .__field-set > textarea {
+    grid-column: 1 / -1;
+}
 
-.magrathea-tool.vogsphere .vogsphere__label-detail ul { margin-top: 0; padding-left: var(--gap-m); } */
+/* TRASH FROM HERE ON OUT */
+
+/* global */
+
+/* elements */
+/* .magrathea-tool.vogsphere label {
+    margin-right: var(--space-m);
+}
+
+.magrathea-tool.vogsphere li {
+    margin-top: var(--space-s);
+}
+
+.magrathea-tool.vogsphere ul.--list-style-none {
+    list-style-type: none;
+} */
+
+/* layouts */
+
+/* legos */
+/* .magrathea-tool.vogsphere .__field-container > * + * {
+    margin-top: var(--space-s);
+}
+
+.magrathea-tool.vogsphere section > ul > li {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(20ch, 1fr);
+}
+
+.magrathea-tool.vogsphere section > ul > li > label {
+    justify-self: end;
+}
+
+.magrathea-tool.vogsphere section > ul > li > input {
+    grid-column: 2;
+}
+
+.magrathea-tool.vogsphere section > ul > li > :nth-child(n + 3) {
+    grid-column: 1 / -1;
+} */

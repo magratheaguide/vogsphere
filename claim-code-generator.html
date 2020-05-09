@@ -1,132 +1,172 @@
-<script defer src="claim-code-generator.js"></script>
 <link rel="stylesheet" href="claim-code-generator.css">
+<script defer src="claim-code-generator.js"></script>
 
-<article class="magrathea-tool vogsphere">
+<!-- A helpful resource: https://developer.mozilla.org/en-US/docs/Learn/Forms/How_to_structure_a_web_form -->
+
+<form id="js-vogsphere__form" class="magrathea-tool vogsphere">
     <h2>Vogsphere, the Claim Code Generator</h2>
-
     <p>You can generate the code you need for claims using the following form. Copy the result and post it as is, no changes required. <strong>Please use proper case in all fields!</strong></p>
 
-    <form id="js-vogsphere__form" class="__form">
-        <section class="__section">
-            <h3 class="__section-name">Basics</h3>
+    <section>
+        <h3 class="__section-name">Basics</h3>
 
-            <label for="vogsphere__character-name" class="__question">Character Name</label>
-            <input id="vogsphere__character-name" class="__answer" name="characterName" type="text" required>
+        <div class="__field-set">
+            <label for="vogsphere__character-name">Character Name</label>
+            <input id="vogsphere__character-name" name="characterName" type="text" required>
+        </div>
 
-            <label for="vogsphere__member-group" class="__question">Member Group</label>
-            <select id="vogsphere__member-group" class="__answer" name="memberGroup" required>
+        <div class="__field-set">
+            <label for="vogsphere__member-group">Member Group</label>
+            <select id="vogsphere__member-group" name="memberGroup" required>
                 <option value="">--Please choose an option--</option>
                 <option value="crew">Crew</option>
                 <option value="scientist">Scientist</option>
                 <option value="passenger">Passenger</option>
             </select>
+        </div>
 
-            <label for="vogsphere__profile-url" class="__question">Profile URL</label>
-            <input id="vogsphere__profile-url" class="__answer" name="profileUrl" type="text" required>
+        <div class="__field-set">
+            <label for="vogsphere__profile-url">Profile URL</label>
+            <input id="vogsphere__profile-url" name="profileUrl" type="text" required>
+        </div>
 
-            <label for="vogsphere__writer-alias" class="__question">Writer Alias</label>
-            <input id="vogsphere__writer-alias" class="__answer" name="writerAlias" type="text" required>
+        <div class="__field-set">
+            <label for="vogsphere__writer-alias">Writer Alias</label>
+            <input id="vogsphere__writer-alias" name="writerAlias" type="text" required>
+        </div>
 
-            <label for="vogsphere__face-claim" class="__question">Face Claim</label>
-            <input id="vogsphere__face-claim" class="__answer" name="faceClaim" type="text" required>
+        <div class="__field-set">
+            <label for="vogsphere__face-claim">Face Claim</label>
+            <input id="vogsphere__face-claim" name="faceClaim" type="text" required>
+        </div>
 
-            <label for="vogsphere__occupation" class="__question">Occupation</label>
-            <input id="vogsphere__occupation" class="__answer" name="occupation" type="text">
-            <div class="__answer-help">
-                <ul class="__list">
-                    <li class="__list-item">If Crew, then occupation on board the Erebus.</li>
-                    <li class="__list-item">If Scientist, then type of scientist (e.g. epidemiologist, meteorologist, etc.).</li>
-                    <li class="__list-item">If Passenger, then list Earth occupation.</li>
-                </ul>
-            </div>
-        </section>
+        <div class="__field-set">
+            <label for="vogsphere__occupation">
+                Occupation
+            </label>
+            <input id="vogsphere__occupation" name="occupation" type="text" aria-describedby="vogsphere__occupation-help">
+            <ul id="vogsphere__occupation-help" class="__help">
+                <li>If Crew, then occupation on board the Erebus.</li>
+                <li>If Scientist, then type of scientist (e.g. epidemiologist, meteorologist, etc.).</li>
+                <li>If Passenger, then list Earth occupation.</li>
+            </ul>
+        </div>
+    </section>
 
-        <section class="__section">
-            <h3 class="__section-name">For Scientists</h3>
-            <p class="__section-help">
-                For characters in the Scientist member group. Skip this section if not applicable.
-            </p>
+    <section>
+        <h3 class="__section-name">For Scientists</h3>
+        <p class="__help">
+            For characters in the Scientist member group. Skip this section if not applicable.
+        </p>
 
-            <label for="vogsphere__lab-name" class="__question">Lab Name</label>
-            <input id="vogsphere__lab-name" class="__answer" name="labName" type="text">
+        <div class="__field-set">
+            <label for="vogsphere__lab-name">Lab Name</label>
+            <input id="vogsphere__lab-name" name="labName" type="text">
+        </div>
 
-            <fieldset class="__radio-container">
-                <legend class="__radio-question">
-                    Is this lab already in the Occupation Claim?
-                </legend>
-                <div class="__radio-answer-container">
-                    <label for="vogsphere__is-new-lab" class="__radio-answer">
+        <fieldset>
+            <legend>
+                Is this lab already in the Occupation Claim?
+            </legend>
+            <ul class="--list-style-none">
+                <li>
+                    <label for="vogsphere__is-new-lab">
                         <input id="vogsphere__is-new-lab" type="radio" name="isNewLab" value="true">
                         No
                     </label>
-
-                    <label for="vogsphere__is-not-new-lab" class="__radio-answer">
+                </li>
+                <li>
+                    <label for="vogsphere__is-not-new-lab">
                         <input id="vogsphere__is-not-new-lab" type="radio" name="isNewLab" value="false" checked>
                         Yes
                     </label>
-                </div>
-            </fieldset>
-
-            <fieldset class="__radio-container">
-                <legend class="__radio-question">
-                    Is this lab already in the Occupation Claim?
-                </legend>
-                <div class="__radio-answer-container">
-                    <label for="vogsphere__is-not-lab-lead" class="__radio-answer">
+                </li>
+            </ul>
+        </fieldset>
+            
+        <fieldset>
+            <legend>
+                Is this character their lab's Lead Scientist?
+            </legend>
+            <ul class="--list-style-none">
+                <li>
+                    <label for="vogsphere__is-not-lab-lead">
                         <input id="vogsphere__is-not-lab-lead" type="radio" name="isLabLead" value="false" checked>
-                        No
+                            No
                     </label>
-
-                    <label for="vogsphere__is-lab-lead" class="__radio-answer">
+                </li>
+                <li>
+                    <label for="vogsphere__is-lab-lead">
                         <input id="vogsphere__is-lab-lead" type="radio" name="isLabLead" value="true">
-                        Yes
+                            Yes
                     </label>
-                </div>
-            </fieldset>
+                </li>
+            </ul>
+        </fieldset>    
+    
+        <div class="__field-set">
+            <label for="vogsphere__lab-desc">
+                Lab Description
+            </label>
+            <ul id="vogsphere__lab-desc-help" class="__help">
+                <li>
+                    If this is a new lab to be added to the Occupation Claim, please provide a quick description. Otherwise, leave blank.
+                </li>
+            </ul>
+            <textarea id="vogsphere__lab-desc" name="labDescription" rows="5" aria-describedby="vogsphere__lab-desc-help"></textarea>
+        </div>
+    </section>
 
-            <label for="vogsphere__lab-desc" class="__question">Lab Description</label>
-            <div class="__answer-help">
-                If this is a new lab to be added to the Occupation Claim, please provide a quick description. Otherwise, leave blank.
-            </div>
-            <textarea id="vogsphere__lab-desc" class="__answer" name="labDescription" rows="10"></textarea>
-        </section>
+    <section>
+        <h3 class="__section-name">Requested Character?</h3>
 
-        <section class="__section">
-            <h3 class="__section-name">Requested Character?</h3>
-
-            <fieldset class="__radio-container">
-                <legend class="__radio-question">
-                    Is this character part of a request?
-                </legend>
-                <div class="__radio-answer-container">
-                    <label for="vogsphere__is-not-requested" class="__radio-answer">
+        <fieldset>
+            <legend>
+                Is this character part of a request?
+            </legend>
+            <ul class="--list-style-none">
+                <li>
+                    <label for="vogsphere__is-not-requested">
                         <input id="vogsphere__is-not-requested" type="radio" name="isRequested" value="false">
                         No
                     </label>
-
-                    <label for="vogsphere__is-requested" class="__radio-answer">
+                </li>
+                <li>
+                    <label for="vogsphere__is-requested">
                         <input id="vogsphere__is-requested type=" type="radio" name="isRequested" value="true" checked>
                         Yes
                     </label>
-                </div>
-            </fieldset>
+                </li>
+            </ul>
+        </fieldset>
 
-            <label for="vogsphere__requester" class="__question">Requested By</label>
-            <input id="vogsphere__requester" class="__answer" name="requester" type="text">
-            <div class="__answer-help">Leave blank if not applicable.</div>
+        <div class="__field-set">
+            <label for="vogsphere__requester">
+                Requested By
+            </label>
+            <input id="vogsphere__requester" name="requester" type="text" aria-describedby="vogsphere__requester-help">
+            <div id="vogsphere__requester-help" class="__help">Leave blank if not applicable.</div>
+        </div>
 
-            <label for="vogsphere__request-location" class="__question">Request Location</label>
-            <input id="vogsphere__request-location" class="__answer" name="requestLocation" type="text">
-            <div class="__answer-help">Leave blank if not applicable.</div>
-        </section>
+        <div class="__field-set">
+            <label for="vogsphere__request-location">
+                Request Location
+            </label>
+            <input id="vogsphere__request-location" name="requestLocation" type="text" aria-describedby="vogsphere__request-location-help">
+            <div id="vogsphere__request-location-help" class="__help">Leave blank if not applicable.</div>
+        </div>
+    </section>
 
-        <button id="js-vogsphere__run" class="__run-trigger" form="js-vogsphere__form" type="button">Generate Code</button>
-    </form>
-    
-    <div id="js-vogsphere__result" class="__result-container">
+    <section>
+        <button id="js-vogsphere__run" form="js-vogsphere__form" type="button">Generate Code</button>
+    </section>
+
+    <section id="js-vogsphere__result" class="__result-container">
+        <h3>Result</h3>
+
         <!-- TODO: demo only, remove starting here... -->
         <pre><code>
-            
+            Claim code will be shown here.
         </code></pre>
         <!-- ...ending here -->
 
@@ -135,6 +175,6 @@
         [code]
         [/code]
         [dohtml] -->
-    </div>
-
-</article>
+    </section>
+</form>
+    
