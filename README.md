@@ -21,7 +21,7 @@ Check [the wiki](https://github.com/rp-magrathea/vogsphere/wiki) for instruction
 
 ## This looks kinda familiar...
 
-This tool was originally thought up and created by [Daine](https://github.com/littlelark) for [The Breach](https://breached.jcink.net/index.php?showtopic=7&view=findpost&p=30), where she was an admin. The version provided here has been completely revamped to modernize and improve on the original, and to generalize and document the tool so it can be more easily used as a resource on other sites.
+This tool was originally thought up and created by [Daine](https://github.com/littlelark) for [The Breach](https://breached.jcink.net/), where she was an admin. The version provided here has been completely revamped to modernize and improve on the original, and to generalize and document the tool so it can be more easily used as a resource on other sites.
 
 ## The License
 
