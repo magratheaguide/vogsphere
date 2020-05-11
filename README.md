@@ -10,9 +10,9 @@ A [demo version of the generator](https://magrathea.guide/vogsphere/vogsphere.ht
 
 ## What's included?
 
-- `vogsphere.html` (required) is the form members will interact with
-- `vogsphere.js` (required) constructs the claim HTML when members submit the form
-- `vogsphere.css` (optional) provides bare bones styling for the demo version (and can be built upon for actual use)
+- [`src/vogsphere.html`](src/vogsphere.html) (required) is the form members will interact with
+- [`src/vogsphere.js`](src/vogsphere.js) (required) constructs the claim HTML when members submit the form
+- [`src/vogsphere.css`](src/vogsphere.css) (optional) provides bare bones styling for the demo version (and can be built upon for actual use)
 - And the rest is related to keeping this thing tidy and consistent and not needed for using this tool on any RP site.
 
 ## How do I use this for my site?
