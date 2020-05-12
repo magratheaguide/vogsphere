@@ -1,5 +1,7 @@
-/* VOGSPHERE, THE CLAIM CODE GENERATOR
-Purpose: Convert member-provided answers from the associated form into the code admins need to update the various claims lists. 
+/* VOGSPHERE, THE CLAIM CODE GENERATOR (https://github.com/rp-magrathea/vogsphere)
+* Purpose: Convert member-provided answers from the associated form into the code admins need to update the various claims lists. 
+*
+* How To Guide: https://github.com/rp-magrathea/vogsphere/wiki/Getting-Started
 */
 (function () {
     "use strict";
