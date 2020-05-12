@@ -24,21 +24,21 @@
     const rightBracket = "&#93;";
 
     // DOHTML codes
-    let postBbcodeName = "pathfinder"; // TODO: should be the bbcode name of your site's post template
-    let postBbcodeOpen = leftBracket + postBbcodeName + rightBracket;
-    let postBbcodeClose = leftBracket + "/" + postBbcodeName + rightBracket;
+    const postBbcodeName = "pathfinder"; // TODO: should be the bbcode name of your site's post template
+    const postBbcodeOpen = leftBracket + postBbcodeName + rightBracket;
+    const postBbcodeClose = leftBracket + "/" + postBbcodeName + rightBracket;
 
-    let codeBbcodeOpen = leftBracket + "code" + rightBracket;
-    let codeBbcodeClose = leftBracket + "/code" + rightBracket;
+    const codeBbcodeOpen = leftBracket + "code" + rightBracket;
+    const codeBbcodeClose = leftBracket + "/code" + rightBracket;
 
-    let boldOpen = leftBracket + "b" + rightBracket;
-    let boldClose = leftBracket + "/b" + rightBracket;
+    const boldOpen = leftBracket + "b" + rightBracket;
+    const boldClose = leftBracket + "/b" + rightBracket;
 
     function formatBold(content) { return `${boldOpen}${content}${boldClose}`; }
     function formatUrl(address) { return `${leftBracket}url="${address}"${rightBracket}${address}${leftBracket}/url${rightBracket}`; }
 
     // TODO: names of form fields (as specified by the "name" attribute in the html)
-    let expectedFormFields = {
+    const expectedFormFields = {
         text: [
             "characterName"
             , "faceClaim"
