@@ -25,6 +25,12 @@ Check [the wiki](https://github.com/rp-magrathea/vogsphere/wiki) for instruction
 
 This tool was originally thought up and created by [Daine](https://daine.dev) for [The Breach](https://breached.jcink.net/), where she was an admin. The version provided here has been completely revamped to modernize and improve on the original, and to generalize and document the tool so it can be more easily used as a resource on other sites.
 
+## Some Helpful Resources
+
+- [HTML: A good basis for accessibility](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML)
+- [Your First Form](https://developer.mozilla.org/en-US/docs/Learn/Forms/Your_first_form)
+- [How to Structure a Web Form](https://developer.mozilla.org/en-US/docs/Learn/Forms/How_to_structure_a_web_form)
+
 ## The License
 
 As you'll see from [the included license](LICENSE), everything in this repository is free to use however you wish without any restrictions or stipulations. You don’t even have to give credit (though credit is both always appreciated and a way to help others find these resources too!).
