@@ -14,14 +14,17 @@ rules:
     - 4
     - SwitchCase: 1
       ignoredNodes: 
-      - TemplateLiteral > *
+        - TemplateLiteral
   linebreak-style:
     - error
     - unix
+  multiline-ternary: 
+    - error
+    - always-multiline
   no-console: warn
   no-template-curly-in-string: warn
   no-useless-concat: error
-  # prefer-template: error
+  prefer-template: warn
   quotes:
     - error
     - double

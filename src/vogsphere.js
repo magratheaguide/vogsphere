@@ -151,11 +151,10 @@
     <span class="list-taken-by text-color-${input.memberGroup.value}">
         <a href="${input.profileUrl.value}">${input.characterName.value}</a>
     </span> ${
-        input.occupation.value === ""
-        ? ""
-        : 
-    `<span class="list-aside">(${input.occupation.value})</span>`
-    }
+            input.occupation.value === ""
+                ? ""
+                : `<span class="list-aside">(${input.occupation.value})</span>`
+            }
 </div>`;
 
         // labs are in the occupation claim list, so the occupation claim code is inserted into the lab claim
@@ -200,34 +199,33 @@ Face claim:
 ${codeBbcodeOpen} ${faceClaim} ${codeBbcodeClose}
     
 Occupation claim: ${
-    input.memberGroup.value == "scientist"
-    ? 
-`
+            input.memberGroup.value == "scientist"
+                ? `
 Add to ${input.labName.value} as ${input.isLabLead ? "Lead" : "Staff"}`
-    : ""
-}
+                : ""
+            }
 ${codeBbcodeOpen} ${input.isNewLab ? labClaim : occupationClaim} ${codeBbcodeClose} ${
-    input.isRequested
-    ? `
+            input.isRequested
+                ? `
 
 ${formatBold("REQUESTED CHARACTER")} ${
-        input.requester.value
-        ? `
+                input.requester.value
+                    ? `
 Requested by: ${input.requester.value}`
-        : ""
-    } ${
-        input.requestLocation.value
-        ? `
+                    : ""
+                } ${
+                input.requestLocation.value
+                    ? `
 Request location: ${
-            input.requestLocation.value 
-            && /^http/.test(input.requestLocation.value)
-            ? formatUrl(input.requestLocation.value)
-            : input.requestLocation.value
-        }`
-        : ""
-    }`
-    : ""
-} 
+                    input.requestLocation.value 
+                    && /^http/.test(input.requestLocation.value)
+                        ? formatUrl(input.requestLocation.value)
+                        : input.requestLocation.value
+                    }`
+                    : ""
+                }`
+                : ""
+            } 
 ${postBbcodeClose}`;
 
         return code;
