@@ -62,11 +62,16 @@
     let input = {};
     let errors = [];
 
-    // data needed from text fields
     class textInput {
         constructor(name) {
             this.value = form.elements[name].value;
             this.required = form.elements[name].required;
+        }
+    }
+
+    class boolInput {
+        constructor(name) {
+            this.value = (form.elements[name].value === "true");
         }
     }
 
@@ -93,7 +98,7 @@
                             input[fieldName] = new textInput(fieldName);
                             break;
                         case "bool":
-                            input[fieldName] = (form.elements[fieldName].value === "true");
+                            input[fieldName] = new boolInput(fieldName);
                             break;
                         default:
                             errors.push(`ERROR: Form field type "${type}" is unsupported. Contact admin`);
@@ -114,7 +119,7 @@
 
         // check that information about requester or request location is provided for requested characters
         if (
-            input.isRequested
+            input.isRequested.value
             && !input.requester.value
             && !input.requestLocation.value
         ) {
@@ -124,7 +129,7 @@
         // TODO: check for context-sensitive errors (e.g. if member group is A, need to also have provided B)
         if (
             input.memberGroup.value == "scientist"
-            && input.isNewLab
+            && input.isNewLab.value
             && !input.labDescription.value
         ) {
             errors.push("ERROR: Missing lab description");
@@ -138,35 +143,44 @@
         }
     }
 
-    // TODO: update function contents to match the actual claim codes needed for the site
-    function fillInClaims() {
-        let faceClaim = 
+    // TODO: update/create classes to match the actual claim codes needed for the site
+    class faceClaim {
+        constructor(faceClaim, memberGroup, profileUrl, writerAlias, characterName) {
+            this.code = 
 `<div class="claim-row">
-    <span class="detail-alitus"><b>${input.faceClaim.value}</b></span> as 
-    <span class="detail-alitus no-bg text-color-${input.memberGroup.value}">
-        <a href="${input.profileUrl.value}" title="played by ${input.writerAlias.value}">${input.characterName.value}</a>
+    <span class="detail-alitus"><b>${faceClaim}</b></span> as 
+    <span class="detail-alitus no-bg text-color-${memberGroup}">
+        <a href="${profileUrl}" title="played by ${writerAlias}">${characterName}</a>
     </span>
 </div>`;
+        }
+    }
 
-        let occupationClaim = 
+    class occupationClaim {
+        constructor(memberGroup, profileUrl, characterName, occupation) {
+            this.code =
 `<div class="list-item level-3">
-    <span class="list-taken-by text-color-${input.memberGroup.value}">
-        <a href="${input.profileUrl.value}">${input.characterName.value}</a>
+    <span class="list-taken-by text-color-${memberGroup}">
+        <a href="${profileUrl}">${characterName}</a>
     </span> ${
-            input.occupation.value === ""
+            occupation === ""
                 ? ""
-                : `<span class="list-aside">(${input.occupation.value})</span>`
+                : `<span class="list-aside">(${occupation})</span>`
             }
 </div>`;
+        }
+    }
 
-        // labs are in the occupation claim list, so the occupation claim code is inserted into the lab claim
-        let labClaim = 
+    class labClaim {
+        constructor(labName, labDescription, isLabLead, occupationClaim) {
+            // labs are in the occupation claim list, so the occupation claim code is inserted into the lab claim
+            this.code = 
 `<div class="list-item level-1">
-    <span class="heading-dinorwic">${input.labName.value}</span>
+    <span class="heading-dinorwic">${labName}</span>
 </div>
 
 <div class="textblock-aniak left list-item level-2">
-    ${input.labDescription.value}
+    ${labDescription}
 </div>
 
 <div class="list-item level-2">
@@ -174,55 +188,90 @@
     <span class="pill-gusev">Limit 1</span>
 </div>
 
-${input.isLabLead ? occupationClaim : ""}
+${isLabLead ? occupationClaim.code : ""}
 
 <div class="list-item level-2">
     <span class="heading-dollfus">Staff</span>
 </div>
 
-${input.isLabLead ? "" : occupationClaim}`;
+${isLabLead ? "" : occupationClaim.code}`;
+        }
+    }
+
+    // TODO: list all the different claims you need and the pieces they need to be filled in
+    function fillInClaims() {
+        let completeFaceClaim = new faceClaim(
+            input.faceClaim.value
+            , input.memberGroup.value
+            , input.profileUrl.value
+            , input.writerAlias.value
+            , input.characterName.value
+        );
+        let completeOccupationClaim = new occupationClaim(
+            input.memberGroup.value
+            , input.profileUrl.value
+            , input.characterName.value
+            , input.occupation.value
+        );
+        // note that the labClaim needs to be handed the occupationClaim
+        let completeLabClaim = new labClaim(
+            input.labName.value
+            , input.labDescription.value
+            , input.isLabLead.value
+            , completeOccupationClaim
+        );
 
         return {
-            faceClaim: faceClaim
-            , occupationClaim: occupationClaim
-            , labClaim: labClaim
+            faceClaim: completeFaceClaim
+            , occupationClaim: completeOccupationClaim
+            , labClaim: completeLabClaim
         };
     }
 
     // TODO: update to create the post you want members to reply with
     function compileClaimPost(claims) {
+        // create shorter names to keep the post content more readable
         let faceClaim = claims.faceClaim;
         let occupationClaim = claims.occupationClaim;
         let labClaim = claims.labClaim;
 
-        let code = 
+        let memberGroup = input.memberGroup.value;
+        let labName = input.labName.value;
+        let isLabLead = input.isLabLead.value;
+        let isNewLab = input.isNewLab.value;
+        let isRequested = input.isRequested.value;
+        let requester = input.requester.value;
+        let requestLocation = input.requestLocation.value;
+
+        // compile the claims post
+        let post = 
 `${postBbcodeOpen}
 Face claim: 
-${codeBbcodeOpen} ${faceClaim} ${codeBbcodeClose}
+${codeBbcodeOpen}${faceClaim.code}${codeBbcodeClose}
     
 Occupation claim: ${
-            input.memberGroup.value == "scientist"
+            memberGroup == "scientist"
                 ? `
-Add to ${input.labName.value} as ${input.isLabLead ? "Lead" : "Staff"}`
+Add to ${labName} as ${isLabLead ? "Lead" : "Staff"}`
                 : ""
             }
-${codeBbcodeOpen} ${input.isNewLab ? labClaim : occupationClaim} ${codeBbcodeClose} ${
-            input.isRequested
+${codeBbcodeOpen}${isNewLab ? labClaim.code : occupationClaim.code}${codeBbcodeClose} ${
+            isRequested
                 ? `
 
 ${formatBold("REQUESTED CHARACTER")} ${
-                input.requester.value
+                requester
                     ? `
-Requested by: ${input.requester.value}`
+Requested by: ${requester}`
                     : ""
                 } ${
-                input.requestLocation.value
+                requestLocation
                     ? `
 Request location: ${
-                    input.requestLocation.value 
-                    && /^http/.test(input.requestLocation.value)
-                        ? formatUrl(input.requestLocation.value)
-                        : input.requestLocation.value
+                    requestLocation
+                    && /^http/.test(requestLocation)
+                        ? formatUrl(requestLocation)
+                        : requestLocation
                     }`
                     : ""
                 }`
@@ -230,7 +279,7 @@ Request location: ${
             } 
 ${postBbcodeClose}`;
 
-        return code;
+        return post;
     }
 
     function generateClaim() {
