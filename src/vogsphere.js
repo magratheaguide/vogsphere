@@ -119,7 +119,7 @@
             errors.push("ERROR: Requested character, need requester name or request location");
         }
 
-        // TODO: check for context-sensitive errors (e.g. if member group is A, members need to also have provided B)
+        // TODO: check for context-sensitive errors (e.g. if member group is A, need to also have provided B)
         if (
             input.memberGroup.value == "scientist"
             && input.isNewLab
@@ -233,7 +233,7 @@ ${postBbcodeClose}`;
         return code;
     }
 
-    function generateClaimPost() {
+    function generateClaim() {
         let claims;
         let post;
 
@@ -257,5 +257,5 @@ ${postBbcodeClose}`;
         return;
     }
 
-    runBtn.addEventListener("click", generateClaimPost, false);
+    runBtn.addEventListener("click", generateClaim, false);
 })();
