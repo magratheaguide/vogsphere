@@ -19,23 +19,25 @@
 
     const newline = "\n";
 
+    // doHTML codes
     // square brackets must be escaped or else they get processed right away by Jcink
     const leftBracket = "&#91;";
     const rightBracket = "&#93;";
 
-    // DOHTML codes
-    const postBbcodeName = "pathfinder"; // TODO: should be the bbcode name of your site's post template
-    const postBbcodeOpen = leftBracket + postBbcodeName + rightBracket;
-    const postBbcodeClose = leftBracket + "/" + postBbcodeName + rightBracket;
+    function openDohtml(tag) { return `${leftBracket}${tag}${rightBracket}`; } // returns [tag]
+    function openEqualsDohtml(tag, param) { return `${leftBracket}${tag}="${param}"${rightBracket}`; } // returns [tag=param]
+    function closeDohtml(tag) { return `${leftBracket}/${tag}${rightBracket}`; } // returns [/tag]
+    
+    const postBbcodeName = "pathfinder"; // TODO: should be the name of your site's default bbcode for posting
 
-    const codeBbcodeOpen = leftBracket + "code" + rightBracket;
-    const codeBbcodeClose = leftBracket + "/code" + rightBracket;
+    const postBbcodeOpen = openDohtml(postBbcodeName);
+    const postBbcodeClose = closeDohtml(postBbcodeName);
+    
+    const codeBbcodeOpen = openDohtml("code");
+    const codeBbcodeClose = closeDohtml("code");
 
-    const boldOpen = leftBracket + "b" + rightBracket;
-    const boldClose = leftBracket + "/b" + rightBracket;
-
-    function formatBold(content) { return `${boldOpen}${content}${boldClose}`; }
-    function formatUrl(address) { return `${leftBracket}url="${address}"${rightBracket}${address}${leftBracket}/url${rightBracket}`; }
+    function formatBold(content) { return `${openDohtml("b")}${content}${closeDohtml("b")}`; }
+    function formatUrl(address) { return `${openEqualsDohtml("url", `${address}`)}${address}${closeDohtml("url")}`; }
 
     // TODO: names of form fields (as specified by the "name" attribute in the html)
     const expectedFormFields = {

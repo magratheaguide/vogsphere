@@ -24,7 +24,7 @@ rules:
   no-console: warn
   no-template-curly-in-string: warn
   no-useless-concat: error
-  prefer-template: warn
+  prefer-template: error
   quotes:
     - error
     - double
