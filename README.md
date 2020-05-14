@@ -1,5 +1,8 @@
 # Vogsphere, the Claim Code Generator
 
+![Maintenance](https://img.shields.io/maintenance/yes/2020) [![GitHub license](https://img.shields.io/github/license/rp-magrathea/vogsphere)](https://github.com/rp-magrathea/vogsphere/blob/master/LICENSE)
+![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/rp-magrathea/vogsphere) ![Code Climate technical debt](https://img.shields.io/codeclimate/tech-debt/rp-magrathea/vogsphere)
+
 ## What is it?
 
 Frequently on forum roleplaying sites, members are asked to copy, modify, and then post codes needed to fill out sitewide claims lists. This process is highly error prone, and asks members who may not be familiar with code to make code modifications. With this tool, members can instead fill out a form, click a button, and be given exactly the claims code they need to post, no changes or code modifications needed.
