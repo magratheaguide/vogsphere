@@ -10,6 +10,14 @@ rules:
   declaration-block-semicolon-space-before: never-single-line
   indentation: 4
   no-descending-specificity: true
+  order/order:
+    - custom-properties
+    - dollar-variables
+    - at-variables
+    - declarations
+    - rules
+    - at-rules
+    - less-mixins
   order/properties-alphabetical-order: 
     - true
     - severity: warning
