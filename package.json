@@ -2,12 +2,13 @@
   "name": "vogsphere-claim-code-generator",
   "version": "1.0.0",
   "description": "For forum RP sites: Enable members to fill out claims without editing code",
-  "main": "vogsphere.js",
+  "main": "src/vogsphere.js",
   "devDependencies": {
     "eslint": "^6.8.0",
     "stylelint": "^13.3.3",
     "stylelint-config-standard": "^20.0.0",
-    "stylelint-order": "^4.0.0"
+    "stylelint-order": "^4.0.0",
+    "stylelint-scss": "^3.17.2"
   },
   "repository": {
     "type": "git",
@@ -20,13 +21,11 @@
     "rpg",
     "forum rp"
   ],
-  "author": "Daine https://github.com/littlelark/",
+  "author": "Daine (https://daine.dev)",
   "license": "Unlicense",
   "bugs": {
     "url": "https://github.com/rp-magrathea/vogsphere/issues"
   },
   "homepage": "https://github.com/rp-magrathea/vogsphere#readme",
-  "dependencies": {
-    "stylelint-scss": "^3.17.1"
-  }
+  "dependencies": {}
 }
