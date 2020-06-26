@@ -4,16 +4,14 @@
   "description": "For forum RP sites: Enable members to fill out claims without editing code",
   "main": "src/vogsphere.js",
   "devDependencies": {
+    "@rp-magrathea/stylelint-alphabetical-clockwise-order": "git://github.com/rp-magrathea/stylelint-alphabetical-clockwise-order.git#v1.0.0",
     "eslint": "^6.8.0",
     "stylelint": "^13.3.3",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.0.0",
     "stylelint-scss": "^3.17.2"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rp-magrathea/vogsphere.git"
-  },
+  "repository": "github:rp-magrathea/vogsphere",
   "keywords": [
     "rp",
     "jcink",
@@ -21,11 +19,8 @@
     "rpg",
     "forum rp"
   ],
-  "author": "Daine (https://daine.dev)",
+  "author": "Daine <veralidaine.thewildmage@gmail.com> (https://daine.dev)",
   "license": "Unlicense",
-  "bugs": {
-    "url": "https://github.com/rp-magrathea/vogsphere/issues"
-  },
-  "homepage": "https://github.com/rp-magrathea/vogsphere#readme",
-  "dependencies": {}
+  "bugs": "https://github.com/rp-magrathea/vogsphere/issues",
+  "homepage": "https://github.com/rp-magrathea/vogsphere#readme"
 }
