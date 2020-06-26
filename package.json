@@ -1,6 +1,6 @@
 {
   "name": "vogsphere-claim-code-generator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "For forum RP sites: Enable members to fill out claims without editing code",
   "main": "src/vogsphere.js",
   "devDependencies": {
