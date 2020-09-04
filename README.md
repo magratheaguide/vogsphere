@@ -1,7 +1,6 @@
 # Vogsphere, the Claim Code Generator
 
 ![Maintenance](https://img.shields.io/maintenance/yes/2020) [![GitHub license](https://img.shields.io/github/license/rp-magrathea/vogsphere)](https://github.com/rp-magrathea/vogsphere/blob/master/LICENSE)
-[![Maintainability](https://api.codeclimate.com/v1/badges/013e0bf183119107f68a/maintainability)](https://codeclimate.com/github/rp-magrathea/vogsphere/maintainability)
 
 ## What is it?
 
