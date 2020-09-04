@@ -22,4 +22,5 @@ jobs:
           CSS_FILE_NAME: .stylelintrc.yml
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LINTER_RULES_PATH:
           VALIDATE_ALL_CODEBASE: true
