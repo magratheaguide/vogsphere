@@ -1,7 +1,7 @@
 ---
 extends: stylelint-config-standard
 plugins:
-  - "@rp-magrathea/stylelint-alphabetical-clockwise-order"
+  - "./node_modules/@rp-magrathea/stylelint-alphabetical-clockwise-order"
   - stylelint-order
 rules:
   at-rule-empty-line-before:

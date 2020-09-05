@@ -8,7 +8,7 @@ Frequently on forum roleplaying sites, members are asked to copy, modify, and th
 
 A [demo version of the generator](https://magrathea.guide/vogsphere/src/vogsphere.html) is available to play with via this repo.
 
-**[Pull requests](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request) are welcome** if you have ideas for improvements to the tool's quality or usability that you'd like to share. 
+**[Pull requests](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request) are welcome** if you have ideas for improvements to the tool's quality or usability that you'd like to share.
 
 Found a bug? Got an idea for a new feature? Have a question? Please feel free to submit any and all of these as [issues in this repo](https://github.com/rp-magrathea/vogsphere/issues).
 
