@@ -15,15 +15,33 @@
             <input id="vogsphere__character-name" name="characterName" type="text" required>
         </div>
 
-        <div class="__input-group">
-            <label for="vogsphere__member-group">Member Group</label>
-            <select id="vogsphere__member-group" name="memberGroup" required>
-                <option value="">--Please choose an option--</option>
-                <option value="crew">Crew</option>
-                <option value="scientist">Scientist</option>
-                <option value="passenger">Passenger</option>
-            </select>
-        </div>
+        <!--Added radio buttons for member-group selection-->
+        <fieldset>
+            <legend>
+                Member Group
+            </legend>
+            <!--Selected class minimal to continue same format below-->
+            <ul class="--minimal">
+                <li>
+                    <label for="vogsphere__member-group">
+                        <input type="radio" name="memberGroup" value="crew" id="crew">
+                        Crew
+                    </label>
+                </li>
+                <li>
+                    <label for="vogsphere__member-group">
+                        <input type="radio" name="memberGroup" value="scientist" id="scientist">
+                        Scientist
+                    </label>
+                </li>
+                <li>
+                    <label for="vogsphere__member-group">
+                        <input type="radio" name="memberGroup" value="passenger" id="passenger">
+                        Passenger
+                    </label>
+                </li>
+            </ul>
+        </fieldset>
 
         <div class="__input-group">
             <label for="vogsphere__profile-url">Profile URL</label>
