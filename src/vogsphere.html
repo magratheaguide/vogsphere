@@ -15,28 +15,26 @@
             <input id="vogsphere__character-name" name="characterName" type="text" required>
         </div>
 
-        <!--Added radio buttons for member-group selection-->
         <fieldset>
             <legend>
                 Member Group
             </legend>
-            <!--Selected class minimal to continue same format below-->
             <ul class="--minimal">
                 <li>
-                    <label for="vogsphere__member-group">
-                        <input type="radio" name="memberGroup" value="crew" id="crew">
+                    <label for="vogsphere__crew">
+                        <input type="radio" name="memberGroup" value="crew" id="vogsphere__crew" checked>
                         Crew
                     </label>
                 </li>
                 <li>
-                    <label for="vogsphere__member-group">
-                        <input type="radio" name="memberGroup" value="scientist" id="scientist">
+                    <label for="vogsphere__scientist">
+                        <input type="radio" name="memberGroup" value="scientist" id="vogsphere__scientist">
                         Scientist
                     </label>
                 </li>
                 <li>
-                    <label for="vogsphere__member-group">
-                        <input type="radio" name="memberGroup" value="passenger" id="passenger">
+                    <label for="vogsphere__passenger">
+                        <input type="radio" name="memberGroup" value="passenger" id="vogsphere__passenger">
                         Passenger
                     </label>
                 </li>
@@ -185,4 +183,3 @@
         [dohtml] -->
     </section>
 </form>
-    
