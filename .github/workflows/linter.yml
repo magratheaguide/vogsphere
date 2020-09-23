@@ -2,8 +2,6 @@
 name: Linter
 
 on:
-  push:
-    branches-ignore: [master]
   pull_request:
     branches: [master]
 
@@ -39,4 +37,5 @@ jobs:
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LINTER_RULES_PATH: ./
+          VALIDATE_ALL_CODEBASE: false
           VALIDATE_JAVASCRIPT_STANDARD: false
