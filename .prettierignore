@@ -1,0 +1,11 @@
+# file types
+*.code-workspace
+*.hbs
+
+# directories
+.vscode/
+node_modules/
+
+# specific files
+.DS_Store
+package-lock.json
