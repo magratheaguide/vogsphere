@@ -251,6 +251,13 @@ ${postBbcodeClose}`;
             errors.push("ERROR: Missing lab description");
         }
 
+         //Check for selection on Member group
+         if (
+            !input.memberGroup.value
+        ) {
+            errors.push("ERROR: Missing Member group selection");
+        }
+
         if (
             input.memberGroup.value == "scientist"
             && !input.labName.value
