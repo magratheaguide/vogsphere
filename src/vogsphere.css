@@ -16,9 +16,9 @@
 }
 
 /********************************************* GLOBAL */
-.magrathea-tool.vogsphere *
-, .magrathea-tool.vogsphere *::before
-, .magrathea-tool.vogsphere *::after {
+.magrathea-tool.vogsphere *,
+.magrathea-tool.vogsphere *::before,
+.magrathea-tool.vogsphere *::after {
     box-sizing: border-box;
 }
 
@@ -29,9 +29,9 @@
 /********************************************* ELEMENTS */
 
 /* shared styles */
-.magrathea-tool.vogsphere input
-, .magrathea-tool.vogsphere select
-, .magrathea-tool.vogsphere textarea {
+.magrathea-tool.vogsphere input,
+.magrathea-tool.vogsphere select,
+.magrathea-tool.vogsphere textarea {
     font: inherit;
 }
 

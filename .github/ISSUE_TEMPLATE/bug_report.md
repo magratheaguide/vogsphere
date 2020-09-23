@@ -1,10 +1,9 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-title: ''
+title: ""
 labels: triage
-assignees: ''
-
+assignees: ""
 ---
 
 **Describe the bug**
@@ -26,10 +25,10 @@ If applicable, add screenshots to help explain your problem.
 
 **Device (please complete the following information):**
 
-- Device: [e.g. iPhone6, Macbook Air]
-- OS: [e.g. iOS]
-- Browser [e.g. chrome, safari]
-- Browswer Version [e.g. 22]
+-   Device: [e.g. iPhone6, Macbook Air]
+-   OS: [e.g. iOS]
+-   Browser [e.g. chrome, safari]
+-   Browswer Version [e.g. 22]
 
 **Additional context**
 Add any other context about the problem here.
