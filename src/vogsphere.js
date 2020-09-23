@@ -1,5 +1,5 @@
 /* VOGSPHERE, THE CLAIM CODE GENERATOR (https://github.com/rp-magrathea/vogsphere)
-* Purpose: Convert member-provided answers from the associated form into the code admins need to update the various claims lists. 
+* Purpose: Convert member-provided answers from the associated form into the code admins need to update the various claims lists.
 *
 * How To Guide: https://github.com/rp-magrathea/vogsphere/wiki/Getting-Started
 */
@@ -27,12 +27,12 @@
     function openDohtml(tag) { return `${leftBracket}${tag}${rightBracket}`; } // returns [tag]
     function openEqualsDohtml(tag, param) { return `${leftBracket}${tag}="${param}"${rightBracket}`; } // returns [tag=param]
     function closeDohtml(tag) { return `${leftBracket}/${tag}${rightBracket}`; } // returns [/tag]
-    
+
     const postBbcodeName = "pathfinder"; // TODO: should be the name of your site's default bbcode for posting
 
     const postBbcodeOpen = openDohtml(postBbcodeName);
     const postBbcodeClose = closeDohtml(postBbcodeName);
-    
+
     const codeBbcodeOpen = openDohtml("code");
     const codeBbcodeClose = closeDohtml("code");
 
@@ -86,9 +86,9 @@
             , profileUrl
             , writerAlias
         ) {
-            this.code = 
+            this.code =
 `<div class="claim-row">
-    <span class="detail-alitus"><b>${faceClaim}</b></span> as 
+    <span class="detail-alitus"><b>${faceClaim}</b></span> as
     <span class="detail-alitus no-bg text-color-${memberGroup}">
         <a href="${profileUrl}" title="played by ${writerAlias}">${characterName}</a>
     </span>
@@ -114,7 +114,7 @@
     class labClaim {
         constructor(isLabLead, labName, labDescription, occupationClaim) {
             // labs are in the occupation claim list, so the occupation claim code is inserted into the lab claim
-            this.code = 
+            this.code =
 `<div class="list-item level-1">
     <span class="heading-dinorwic">${labName}</span>
 </div>
@@ -154,11 +154,11 @@ ${isLabLead ? "" : occupationClaim.code}`;
             , isNewLab
             , isRequested
         ) {
-            this.content = 
+            this.content =
 `${postBbcodeOpen}
-Face claim: 
+Face claim:
 ${codeBbcodeOpen}${faceClaim.code}${codeBbcodeClose}
-    
+
 Occupation claim: ${
             memberGroup == "scientist"
                 ? `
@@ -186,7 +186,7 @@ Request location: ${
                     : ""
                 }`
                 : ""
-            } 
+            }
 ${postBbcodeClose}`;
         }
     }
@@ -307,7 +307,7 @@ ${postBbcodeClose}`;
             , input.memberGroup.value
             , input.requester.value
             , input.requestLocation.value
-            
+
             , input.isLabLead.value
             , input.isNewLab.value
             , input.isRequested.value
@@ -331,7 +331,7 @@ ${postBbcodeClose}`;
             errors.forEach(element => resultBox.textContent += element + newline);
             return;
         }
- 
+
         claims = fillInClaims();
 
         post = compileClaimPost(claims);
