@@ -1,34 +1,34 @@
 ---
-extends: stylelint-config-standard
+extends:
+    - stylelint-config-standard
+    - stylelint-config-prettier
 plugins:
     - "@rp-magrathea/stylelint-alphabetical-clockwise-order"
     - stylelint-order
 rules:
-    at-rule-empty-line-before:
+    at-rule-no-unknown:
+        - true
+        - ignoreAtRules:
+              - extend
+    at-rule-no-vendor-prefix: true
+    comment-empty-line-before:
         - always
         - except:
-              - after-same-name
               - first-nested
           ignore:
               - after-comment
-              - blockless-after-same-name-blockless
-    at-rule-no-vendor-prefix: true
     custom-property-empty-line-before: null
-    declaration-block-semicolon-space-before: never-single-line
     declaration-block-single-line-max-declarations: 2
     font-family-name-quotes: always-unless-keyword
-    function-comma-newline-after: null
-    function-comma-newline-before: always-multi-line
-    function-comma-space-after: always
-    function-comma-space-before: never-single-line
     function-url-quotes: always
-    indentation: 4
     media-feature-name-no-vendor-prefix: true
     no-descending-specificity: true
     no-duplicate-selectors:
         - true
         - severity: warning
     order/order:
+        - type: at-rule
+          name: extend
         - custom-properties
         - dollar-variables
         - at-variables
@@ -36,20 +36,13 @@ rules:
         - rules
         - at-rules
         - less-mixins
+    plugin/no-unsupported-browser-features:
+        - true
+        - severity: warning
     plugin/properties-alphabetical-clockwise-order:
         - true
         - severity: error
     property-no-vendor-prefix: true
     selector-attribute-quotes: always
-    selector-list-comma-newline-after: null
-    selector-list-comma-newline-before: always-multi-line
-    selector-list-comma-space-after: always
-    selector-list-comma-space-before: never-single-line
     selector-no-vendor-prefix: true
-    string-quotes: double
-    value-list-comma-newline-after: null
-    value-list-comma-newline-before: always-multi-line
-    value-list-comma-space-after: always
-    value-list-comma-space-before: never-single-line
-    value-list-max-empty-lines: 0
     value-no-vendor-prefix: true
