@@ -40,7 +40,6 @@ jobs:
                   FILTER_REGEX_EXCLUDE: .*node_modules.*
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   LINTER_RULES_PATH: ./
-                  VALIDATE_ALL_CODEBASE: false
                   VALIDATE_JAVASCRIPT_STANDARD: false
 
     prettier:
