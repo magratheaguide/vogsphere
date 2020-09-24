@@ -1,27 +1,40 @@
 {
-  "name": "vogsphere-claim-code-generator",
-  "version": "1.0.2",
-  "description": "For forum RP sites: Enable members to fill out claims without editing code",
-  "main": "src/vogsphere.js",
-  "devDependencies": {
-    "@rp-magrathea/stylelint-alphabetical-clockwise-order": "git://github.com/rp-magrathea/stylelint-alphabetical-clockwise-order.git#v1.0.0",
-    "eslint": "^6.8.0",
-    "htmlhint": "^0.14.1",
-    "markdownlint-cli": "^0.23.2",
-    "stylelint": "^13.7.0",
-    "stylelint-config-standard": "^20.0.0",
-    "stylelint-order": "^4.1.0"
-  },
-  "repository": "github:rp-magrathea/vogsphere",
-  "keywords": [
-    "rp",
-    "jcink",
-    "mybb",
-    "rpg",
-    "forum rp"
-  ],
-  "author": "Daine <veralidaine.thewildmage@gmail.com> (https://daine.dev)",
-  "license": "Unlicense",
-  "bugs": "https://github.com/rp-magrathea/vogsphere/issues",
-  "homepage": "https://github.com/rp-magrathea/vogsphere#readme"
+    "author": "Daine <veralidaine.thewildmage@gmail.com> (https://daine.dev)",
+    "bugs": "https://github.com/rp-magrathea/vogsphere/issues",
+    "description": "For forum RP sites: Enable members to fill out claims without editing code",
+    "devDependencies": {
+        "@rp-magrathea/stylelint-alphabetical-clockwise-order": "git://github.com/rp-magrathea/stylelint-alphabetical-clockwise-order.git#v1.0.0",
+        "eslint": "^7.9.0",
+        "htmlhint": "^0.14.1",
+        "markdownlint-cli": "^0.23.2",
+        "prettier": "^2.1.2",
+        "stylelint": "^13.7.0",
+        "stylelint-config-prettier": "^8.0.2",
+        "stylelint-config-standard": "^20.0.0",
+        "stylelint-order": "^4.1.0"
+    },
+    "homepage": "https://github.com/rp-magrathea/vogsphere#readme",
+    "keywords": [
+        "jcink",
+        "mybb",
+        "rpg",
+        "forum",
+        "writing"
+    ],
+    "license": "Unlicense",
+    "main": "src/vogsphere.js",
+    "name": "vogsphere-claim-code-generator",
+    "repository": "github:rp-magrathea/vogsphere",
+    "scripts": {
+        "build": "npm run-script prettier-write",
+        "lint": "npm run-script lint:css-error ; npm run-script lint:html ; npm run-script lint:js",
+        "lint:css": "npx stylelint \"{src,dist}/**/*.{css,html,js}\"",
+        "lint:css-error": "npm run-script lint:css -- --quiet || echo 'failures found'",
+        "lint:css-warning": "npm run-script lint:css || echo 'failures found'",
+        "lint:html": "npx htmlhint \"{src,dist}/**/*.{html,hbs,js}\" || echo 'failures found'",
+        "lint:js": "npx eslint \"{src,dist}/**/*.js\" || echo 'failures found'",
+        "prettier-check": "npx prettier --check .",
+        "prettier-write": "npx prettier --write ."
+    },
+    "version": "1.0.2"
 }

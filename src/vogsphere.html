@@ -1,40 +1,66 @@
-<link rel="stylesheet" href="vogsphere.css"><!-- TODO: Remove this -->
-<script defer src="vogsphere.js"></script><!-- TODO: Update to point to wherever you've hosted the JS -->
+<link rel="stylesheet" href="vogsphere.css" /><!-- TODO: Remove this -->
+<script defer src="vogsphere.js"></script>
+<!-- TODO: Update to point to wherever you've hosted the JS -->
 
 <!-- A helpful resource: https://developer.mozilla.org/en-US/docs/Learn/Forms/How_to_structure_a_web_form -->
 
 <form id="js-vogsphere__form" class="magrathea-tool vogsphere">
     <h2>Vogsphere, the Claim Code Generator</h2>
-    <p>You can generate the code you need for claims using the following form. Copy the result and post it as is, no changes required. <strong>Please use proper case in all fields!</strong></p>
+    <p>
+        You can generate the code you need for claims using the following form.
+        Copy the result and post it as is, no changes required.
+        <strong>Please use proper case in all fields!</strong>
+    </p>
 
     <section>
         <h3>Basics</h3>
 
         <div class="__input-group">
             <label for="vogsphere__character-name">Character Name</label>
-            <input id="vogsphere__character-name" name="characterName" type="text" required>
+            <input
+                id="vogsphere__character-name"
+                name="characterName"
+                type="text"
+                required
+            />
         </div>
 
         <fieldset>
-            <legend>
-                Member Group
-            </legend>
+            <legend>Member Group</legend>
             <ul class="--minimal">
                 <li>
                     <label for="vogsphere__crew">
-                        <input type="radio" name="memberGroup" value="crew" id="vogsphere__crew" required>
+                        <input
+                            type="radio"
+                            name="memberGroup"
+                            value="crew"
+                            id="vogsphere__crew"
+                            required
+                        />
                         Crew
                     </label>
                 </li>
                 <li>
                     <label for="vogsphere__scientist">
-                        <input type="radio" name="memberGroup" value="scientist" id="vogsphere__scientist" required >
+                        <input
+                            type="radio"
+                            name="memberGroup"
+                            value="scientist"
+                            id="vogsphere__scientist"
+                            required
+                        />
                         Scientist
                     </label>
                 </li>
                 <li>
                     <label for="vogsphere__passenger">
-                        <input type="radio" name="memberGroup" value="passenger" id="vogsphere__passenger" required >
+                        <input
+                            type="radio"
+                            name="memberGroup"
+                            value="passenger"
+                            id="vogsphere__passenger"
+                            required
+                        />
                         Passenger
                     </label>
                 </li>
@@ -43,25 +69,48 @@
 
         <div class="__input-group">
             <label for="vogsphere__profile-url">Profile URL</label>
-            <input id="vogsphere__profile-url" name="profileUrl" type="text" required>
+            <input
+                id="vogsphere__profile-url"
+                name="profileUrl"
+                type="text"
+                required
+            />
         </div>
 
         <div class="__input-group">
             <label for="vogsphere__writer-alias">Writer Alias</label>
-            <input id="vogsphere__writer-alias" name="writerAlias" type="text" required>
+            <input
+                id="vogsphere__writer-alias"
+                name="writerAlias"
+                type="text"
+                required
+            />
         </div>
 
         <div class="__input-group">
             <label for="vogsphere__face-claim">Face Claim</label>
-            <input id="vogsphere__face-claim" name="faceClaim" type="text" required>
+            <input
+                id="vogsphere__face-claim"
+                name="faceClaim"
+                type="text"
+                required
+            />
         </div>
 
         <div class="__input-group">
             <label for="vogsphere__occupation">Occupation</label>
-            <input id="vogsphere__occupation" name="occupation" type="text" aria-describedby="vogsphere__occupation-help">
+            <input
+                id="vogsphere__occupation"
+                name="occupation"
+                type="text"
+                aria-describedby="vogsphere__occupation-help"
+            />
             <ul id="vogsphere__occupation-help" class="--aside">
                 <li>If Crew, then occupation on board the Erebus.</li>
-                <li>If Scientist, then type of scientist (e.g. epidemiologist, meteorologist, etc.).</li>
+                <li>
+                    If Scientist, then type of scientist (e.g. epidemiologist,
+                    meteorologist, etc.).
+                </li>
                 <li>If Passenger, then list Earth occupation.</li>
             </ul>
         </div>
@@ -70,62 +119,88 @@
     <section>
         <h3>For Scientists</h3>
         <p>
-            For characters in the Scientist member group. Skip this section if not applicable.
+            For characters in the Scientist member group. Skip this section if
+            not applicable.
         </p>
 
         <div class="__input-group">
             <label for="vogsphere__lab-name">Lab Name</label>
-            <input id="vogsphere__lab-name" name="labName" type="text">
+            <input id="vogsphere__lab-name" name="labName" type="text" />
         </div>
 
         <fieldset>
-            <legend>
-                Is this lab already in the Occupation Claim?
-            </legend>
+            <legend>Is this lab already in the Occupation Claim?</legend>
             <ul class="--minimal">
                 <li>
                     <label for="vogsphere__is-new-lab">
-                        <input id="vogsphere__is-new-lab" type="radio" name="isNewLab" value="true">
+                        <input
+                            id="vogsphere__is-new-lab"
+                            type="radio"
+                            name="isNewLab"
+                            value="true"
+                        />
                         No
                     </label>
                 </li>
                 <li>
                     <label for="vogsphere__is-not-new-lab">
-                        <input id="vogsphere__is-not-new-lab" type="radio" name="isNewLab" value="false" checked>
+                        <input
+                            id="vogsphere__is-not-new-lab"
+                            type="radio"
+                            name="isNewLab"
+                            value="false"
+                            checked
+                        />
                         Yes
                     </label>
                 </li>
             </ul>
         </fieldset>
-            
+
         <fieldset>
-            <legend>
-                Is this character their lab's Lead Scientist?
-            </legend>
+            <legend>Is this character their lab's Lead Scientist?</legend>
             <ul class="--minimal">
                 <li>
                     <label for="vogsphere__is-not-lab-lead">
-                        <input id="vogsphere__is-not-lab-lead" type="radio" name="isLabLead" value="false" checked>
-                            No
+                        <input
+                            id="vogsphere__is-not-lab-lead"
+                            type="radio"
+                            name="isLabLead"
+                            value="false"
+                            checked
+                        />
+                        No
                     </label>
                 </li>
                 <li>
                     <label for="vogsphere__is-lab-lead">
-                        <input id="vogsphere__is-lab-lead" type="radio" name="isLabLead" value="true">
-                            Yes
+                        <input
+                            id="vogsphere__is-lab-lead"
+                            type="radio"
+                            name="isLabLead"
+                            value="true"
+                        />
+                        Yes
                     </label>
                 </li>
             </ul>
-        </fieldset>    
-    
+        </fieldset>
+
         <div class="__input-group">
             <label for="vogsphere__lab-desc">Lab Description</label>
             <ul id="vogsphere__lab-desc-help" class="--full">
                 <li>
-                    If this is a new lab to be added to the Occupation Claim, please provide a quick description. Otherwise, leave blank.
+                    If this is a new lab to be added to the Occupation Claim,
+                    please provide a quick description. Otherwise, leave blank.
                 </li>
             </ul>
-            <textarea id="vogsphere__lab-desc" name="labDescription" class="--full" rows="5" aria-describedby="vogsphere__lab-desc-help"></textarea>
+            <textarea
+                id="vogsphere__lab-desc"
+                name="labDescription"
+                class="--full"
+                rows="5"
+                aria-describedby="vogsphere__lab-desc-help"
+            ></textarea>
         </div>
     </section>
 
@@ -133,19 +208,28 @@
         <h3>Requested Character?</h3>
 
         <fieldset>
-            <legend>
-                Is this character part of a request?
-            </legend>
+            <legend>Is this character part of a request?</legend>
             <ul class="--minimal">
                 <li>
                     <label for="vogsphere__is-not-requested">
-                        <input id="vogsphere__is-not-requested" type="radio" name="isRequested" value="false">
+                        <input
+                            id="vogsphere__is-not-requested"
+                            type="radio"
+                            name="isRequested"
+                            value="false"
+                        />
                         No
                     </label>
                 </li>
                 <li>
                     <label for="vogsphere__is-requested">
-                        <input id="vogsphere__is-requested" type="radio" name="isRequested" value="true" checked>
+                        <input
+                            id="vogsphere__is-requested"
+                            type="radio"
+                            name="isRequested"
+                            value="true"
+                            checked
+                        />
                         Yes
                     </label>
                 </li>
@@ -154,19 +238,35 @@
 
         <div class="__input-group">
             <label for="vogsphere__requester">Requested By</label>
-            <input id="vogsphere__requester" name="requester" type="text" aria-describedby="vogsphere__requester-help">
-            <div id="vogsphere__requester-help">Leave blank if not applicable.</div>
+            <input
+                id="vogsphere__requester"
+                name="requester"
+                type="text"
+                aria-describedby="vogsphere__requester-help"
+            />
+            <div id="vogsphere__requester-help">
+                Leave blank if not applicable.
+            </div>
         </div>
 
         <div class="__input-group">
             <label for="vogsphere__request-location">Request Location</label>
-            <input id="vogsphere__request-location" name="requestLocation" type="text" aria-describedby="vogsphere__request-location-help">
-            <div id="vogsphere__request-location-help">Leave blank if not applicable.</div>
+            <input
+                id="vogsphere__request-location"
+                name="requestLocation"
+                type="text"
+                aria-describedby="vogsphere__request-location-help"
+            />
+            <div id="vogsphere__request-location-help">
+                Leave blank if not applicable.
+            </div>
         </div>
     </section>
 
     <section>
-        <button id="js-vogsphere__run" form="js-vogsphere__form" type="button">Generate Code</button>
+        <button id="js-vogsphere__run" form="js-vogsphere__form" type="button">
+            Generate Code
+        </button>
     </section>
 
     <section id="js-vogsphere__result">
@@ -183,4 +283,3 @@
         [dohtml] -->
     </section>
 </form>
-    
