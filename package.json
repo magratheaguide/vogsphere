@@ -36,5 +36,5 @@
         "prettier-check": "npx prettier --check .",
         "prettier-write": "npx prettier --write ."
     },
-    "version": "1.0.2"
+    "version": "1.0.3"
 }
