@@ -9,9 +9,9 @@ MD026: false # allow punctuation in headings
 MD029:
     style: one # ordered list items should all be 1.
 MD030: # spaces after list marker
-    ol_single: 3
+    ol_single: 2
     ul_single: 3
-    ol_multi: 3
+    ol_multi: 2
     ul_multi: 3
 MD035:
     style: --- # hr
