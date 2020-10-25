@@ -1,6 +1,5 @@
 # file types
 *.code-workspace
-*.hbs
 
 # directories
 .vscode/

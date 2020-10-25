@@ -4,6 +4,7 @@ extends:
     - stylelint-config-prettier
 plugins:
     - "@rp-magrathea/stylelint-alphabetical-clockwise-order"
+    - stylelint-no-unsupported-browser-features
     - stylelint-order
 rules:
     at-rule-no-unknown:
