@@ -1,8 +1,8 @@
 ## Quick Tips
 1. Look for comments that say `TODO`. These are things that you need to address when using Vogsphere.
-1. Don't forget to remove all `<!-- comments -->` before posting the HTML; Jcink can't handle HTML comments.
+1. Don't forget to remove all `<!-- comments -->` before posting the HTML; Jcink can't handle HTML comments in posts.
 
-## The Nitty Gritty
+## The Details
 
 Let's work our way through the HTML bit by bit.
 

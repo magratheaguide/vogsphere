@@ -3,7 +3,7 @@
 1. When you're making modifications, if clicking the button in the form doesn't seem to be doing anything, be sure to check [the console in your browser's dev tools (link is for Firefox)](https://developer.mozilla.org/en-US/docs/Tools/Web_Console/Opening_the_Web_Console) to see if the script is spitting out any errors.
 1. If you haven't already read the [background info](https://github.com/rp-magrathea/vogsphere/wiki/Getting-Started#background) on the [[Getting Started wiki page]](Getting Started), do so now. It provides helpful context for the way things are processed in this script.
 
-## The Nitty Gritty
+## The Details
 
 The script is split out into a number of functions and variables, because [it's a very helpful programming best practice](https://www.w3.org/wiki/JavaScript_best_practices#Modularize_.E2.80.94_one_function_per_task) that makes it easier to maintain and to understand. The functions and variables should have (hopefully) sensible names, and there are comments inline for additional clarity.
 
