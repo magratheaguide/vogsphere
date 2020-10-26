@@ -1,4 +1,5 @@
 ## Quick Tips
+
 1. Look for comments that say `TODO`. These are things that you need to address when using Vogsphere on your site.
 1. When you're making modifications, if clicking the button in the form doesn't seem to be doing anything, be sure to check [the console in your browser's dev tools (link is for Firefox)](https://developer.mozilla.org/en-US/docs/Tools/Web_Console/Opening_the_Web_Console) to see if the script is spitting out any errors.
 1. If you haven't already read the [background info](https://github.com/rp-magrathea/vogsphere/wiki/Getting-Started#background) on the [[Getting Started wiki page]](Getting Started), do so now. It provides helpful context for the way things are processed in this script.
@@ -19,6 +20,7 @@ The first thing you'll notice about the JavaScript is that it's all wrapped in a
 
 ```javascript
 "use strict";
+
 ```
 
 This line opts all Vogsphere JavaScript into [strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode), which (among other things) tells JavaScript to yell at us instead of hemming and hawing over certain mistakes, helping us detect some problems more easily.
@@ -28,7 +30,7 @@ This line opts all Vogsphere JavaScript into [strict mode](https://developer.moz
 const resultBox = document
     .getElementById("js-vogsphere__result")
     .querySelector("code"); // TODO: demo version, comment out when actually using
-    // .querySelector("td#code"); // TODO: real version, works with Jcink's [code] tags
+// .querySelector("td#code"); // TODO: real version, works with Jcink's [code] tags
 ```
 
 Next we need to tell the script where to put the resulting claims codes. For the demo version, we'll drop the codes into the `<code>` tag. When used on your site, remove `.querySelector("code");` and replace it with `.querySelector("td#code");` (as mentioned by the `TODO` comments). This will instead drop the code inside the code block created by Jcink's `[code]` doHTML. (For more info on the way this is structured, see the [[How to Modify the HTML wiki page|Hot to Modifiy the HTML]]).)
@@ -45,22 +47,18 @@ You'll also notice that we have a number of variables at the top of this script 
 // TODO: names of form fields (as specified by the "name" attribute in the html)
 const expectedFormFields = {
     text: [
-        "characterName"
-        , "faceClaim"
-        , "labDescription"
-        , "labName"
-        , "memberGroup"
-        , "occupation"
-        , "profileUrl"
-        , "requester"
-        , "requestLocation"
-        , "writerAlias"
+        "characterName",
+        "faceClaim",
+        "labDescription",
+        "labName",
+        "memberGroup",
+        "occupation",
+        "profileUrl",
+        "requester",
+        "requestLocation",
+        "writerAlias",
     ],
-    bool: [
-        "isLabLead"
-        , "isNewLab"
-        , "isRequested"
-    ]
+    bool: ["isLabLead", "isNewLab", "isRequested"],
 };
 ```
 
@@ -69,7 +67,12 @@ const expectedFormFields = {
 The words used here to describe the fields are the values from the fields' `name` attributes in the HTML. For example:
 
 ```html
-<input id="vogsphere__character-name" name="characterName" type="text" required>
+<input
+    id="vogsphere__character-name"
+    name="characterName"
+    type="text"
+    required
+/>
 ```
 
 The character's name input has `name="characterName"`, so this is what we'll put into `expectedFormFields`.
@@ -113,12 +116,12 @@ The next few classes you will need to customize for your site. We'll start by lo
 
 Each of these classes contain the bits of claim code we need to generate, meaning this is where you'll place your actual HTML claim codes. There are a number of different ways to build HTML in JavaScript, but we use [`template literals`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) here to help us avoid mistakes while keeping the code readable. You can copy and paste your claim codes here and then substitute in the answers in the form using `${expression}` syntax. This was basically the piece we were asking members to do by hand to submit claims. Instead, we do so here once and it's done for everybody.
 
-Please note that, on The Breach, most characters just needed to be added to the occupation claim, plain and simple. But if their character was a scientist in a lab that wasn't already in the occupation claim, then both the character and the lab needed to be added. That meant putting the occupation claim *within* the lab claim. You may or may not need something like the `labClaim` variable for your site.
+Please note that, on The Breach, most characters just needed to be added to the occupation claim, plain and simple. But if their character was a scientist in a lab that wasn't already in the occupation claim, then both the character and the lab needed to be added. That meant putting the occupation claim _within_ the lab claim. You may or may not need something like the `labClaim` variable for your site.
 
 A couple other things to watch out for here:
 
-- Template literals preserve *all* whitespace (e.g. spaces and line breaks), hence the weird indentation. It's a lot easier to just get your claim code into this script, get it working, and then tweak the formatting
-- [Template literals can be nested to create conditional branching](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Nesting_templates). This works in conjuction with the [ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator). This lets us do things like, "If this character is the lead scientist in a new lab, put them in the lead section, otherwise put them in the general staff section"
+-   Template literals preserve _all_ whitespace (e.g. spaces and line breaks), hence the weird indentation. It's a lot easier to just get your claim code into this script, get it working, and then tweak the formatting
+-   [Template literals can be nested to create conditional branching](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Nesting_templates). This works in conjuction with the [ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator). This lets us do things like, "If this character is the lead scientist in a new lab, put them in the lead section, otherwise put them in the general staff section"
 
 ```javascript
 class claimPost {
@@ -174,6 +177,7 @@ function validateInput() {
     // ...
 }
 ```
+
 We've already checked that we can pull answers from the form for all the expected fields, now we need to make sure those answers make sense in the context of our site, and we'll use the `validateInput` function to do so. This function will need some attention, so let's walk through the pieces of it to see what's what.
 
 ```javascript
@@ -190,11 +194,13 @@ First we loop through and make sure that none of the required fields were left b
 ```javascript
 // check that information about requester or request location is provided for requested characters
 if (
-    input.isRequested
-    && !input.requester.value
-    && !input.requestLocation.value
+    input.isRequested &&
+    !input.requester.value &&
+    !input.requestLocation.value
 ) {
-    errors.push("ERROR: Requested character, need requester name or request location");
+    errors.push(
+        "ERROR: Requested character, need requester name or request location"
+    );
 }
 ```
 
@@ -203,37 +209,33 @@ Next, we start comparing fields to each other. In this particular form, if you s
 ```javascript
 // TODO: check for context-sensitive errors (e.g. if member group is A, need to also have provided B)
 if (
-    input.memberGroup.value == "scientist"
-    && input.isNewLab
-    && !input.labDescription.value
+    input.memberGroup.value == "scientist" &&
+    input.isNewLab &&
+    !input.labDescription.value
 ) {
     errors.push("ERROR: Missing lab description");
 }
 
-if (
-    input.memberGroup.value == "scientist"
-    && !input.labName.value
-) {
+if (input.memberGroup.value == "scientist" && !input.labName.value) {
     errors.push("ERROR: Missing name of lab");
 }
 ```
 
 The last piece of the `validateInput` function definitely won't make sense without context. The Breach was set on a ship in space, wherein some characters worked as scientists in the ship's labs. Our occupation claim listed a couple of labs (with short descriptive blurbs), but members were invited to think up additional labs that might be on board. These were added to the occupation claim when the new character was accepted. Therefore, our claim codes needed to consider the following conditions:
 
-- If the character is in the Scientist member group, then we need the name of the lab in which they work
-- If the lab isn't already in the occupation claim, then we need a blurb describing it for the occupation claim
+-   If the character is in the Scientist member group, then we need the name of the lab in which they work
+-   If the lab isn't already in the occupation claim, then we need a blurb describing it for the occupation claim
 
 The above code snippet checks these particular conditions and most likely won't pertain to your site without some modification. It's left in to show how this type of condition checking works within Vogsphere using a real world case.
-
 
 ```javascript
 function fillInClaims() {
     // ...
 
     return {
-        faceClaim: completeFaceClaim
-        , occupationClaim: completeOccupationClaim
-        , labClaim: completeLabClaim
+        faceClaim: completeFaceClaim,
+        occupationClaim: completeOccupationClaim,
+        labClaim: completeLabClaim,
     };
 }
 ```
@@ -261,7 +263,9 @@ function generateClaim() {
 
     // stop if input errors were found
     if (errors.length > 0) {
-        errors.forEach(element => resultBox.textContent += element + newline);
+        errors.forEach(
+            (element) => (resultBox.textContent += element + newline)
+        );
         return;
     }
 
