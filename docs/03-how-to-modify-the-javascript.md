@@ -1,3 +1,5 @@
+# How to Modify the JavaScript
+
 ## Quick Tips
 
 1. Look for comments that say `TODO`. These are things that you need to address when using Vogsphere on your site.
