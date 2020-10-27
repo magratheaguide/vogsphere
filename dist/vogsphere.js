@@ -367,5 +367,8 @@ ${postBbcodeClose}`;
         return;
     }
 
-    runBtn.addEventListener("click", generateClaim, false);
+    form.addEventListener("submit", event => {
+        event.preventDefault();
+        generateClaim();
+    });
 })();
