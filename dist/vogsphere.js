@@ -180,26 +180,25 @@ Add to ${labName} as ${isLabLead ? "Lead" : "Staff"}`
             }
 ${codeBbcodeOpen}${
                 isNewLab ? labClaim.code : occupationClaim.code
-            }${codeBbcodeClose} ${
+}${codeBbcodeClose} ${
                 isRequested
                     ? `
 
 ${formatBold("REQUESTED CHARACTER")} ${
-                          requester
-                              ? `
+                    requester
+                        ? `
 Requested by: ${requester}`
-                              : ""
-                      } ${
-                          requestLocation
-                              ? `
+                        : ""
+                } ${
+                    requestLocation
+                        ? `
 Request location: ${
-                                    requestLocation &&
-                                    /^http/.test(requestLocation)
-                                        ? formatUrl(requestLocation)
-                                        : requestLocation
-                                }`
-                              : ""
-                      }`
+                        requestLocation && /^http/.test(requestLocation)
+                            ? formatUrl(requestLocation)
+                            : requestLocation
+                    }`
+                        : ""
+                }`
                     : ""
             }
 ${postBbcodeClose}`;
