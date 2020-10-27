@@ -16,10 +16,10 @@ https://github.com/rp-magrathea/vogsphere/docs/01-getting-started.md
     "use strict";
 
     const runBtn = document.getElementById("js-vogsphere__run");
+    const resultParent = document.getElementById("js-vogsphere__result-parent");
 
     // get a handle on the place the resulting code needs to go
-    const resultBox = document
-        .getElementById("js-vogsphere__result")
+    const resultBox = resultParent
         .querySelector("code"); // TODO: demo version, comment out when actually using
     // .querySelector("td#code"); // TODO: real version, works with Jcink's [code] tags
 
