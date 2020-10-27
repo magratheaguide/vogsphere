@@ -1,0 +1,22 @@
+{
+    "Section Heading": {
+        "scope": "css, html, javascript"
+        , "prefix": "~heading"
+        , "body": [
+            "$BLOCK_COMMENT_START"
+            , "-----"
+            , "$1"
+            , "-----"
+            , "$BLOCK_COMMENT_END$0"
+        ]
+        , "description": "Add section heading comment"
+    }
+    , "Section Subheading": {
+        "scope": "css, html, javascript"
+        , "prefix": "~subheading"
+        , "body": [
+            "$BLOCK_COMMENT_START ----- $1 $BLOCK_COMMENT_END$0"
+        ]
+        , "description": "Add section subheading comment"
+    }
+}

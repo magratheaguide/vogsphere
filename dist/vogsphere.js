@@ -1,8 +1,17 @@
-/* VOGSPHERE, THE CLAIM CODE GENERATOR (https://github.com/rp-magrathea/vogsphere)
- * Purpose: Convert member-provided answers from the associated form into the code admins need to update the various claims lists.
- *
- * How To Guide: https://github.com/rp-magrathea/vogsphere/wiki/Getting-Started
- */
+/*
+==========
+VOGSPHERE
+The Claim Code Generator
+A Magrathea project
+https://github.com/rp-magrathea/vogsphere
+-----
+Purpose:
+Convert member-provided answers from the associated form into the code admins need to update the various claims lists.
+
+How To Guide:
+https://github.com/rp-magrathea/vogsphere/wiki/Getting-Started
+==========
+*/
 (function () {
     "use strict";
 
@@ -159,6 +168,7 @@ ${isLabLead ? "" : occupationClaim.code}`;
             isNewLab,
             isRequested
         ) {
+            // prettier-ignore
             this.content = `${postBbcodeOpen}
 Face claim:
 ${codeBbcodeOpen}${faceClaim.code}${codeBbcodeClose}
@@ -176,21 +186,21 @@ ${codeBbcodeOpen}${
                     ? `
 
 ${formatBold("REQUESTED CHARACTER")} ${
-                          requester
-                              ? `
+                        requester
+                            ? `
 Requested by: ${requester}`
-                              : ""
-                      } ${
-                          requestLocation
-                              ? `
+                            : ""
+                    } ${
+                        requestLocation
+                            ? `
 Request location: ${
-                                    requestLocation &&
-                                    /^http/.test(requestLocation)
-                                        ? formatUrl(requestLocation)
-                                        : requestLocation
-                                }`
-                              : ""
-                      }`
+                                requestLocation &&
+                                /^http/.test(requestLocation)
+                                    ? formatUrl(requestLocation)
+                                    : requestLocation
+                            }`
+                            : ""
+                    }`
                     : ""
             }
 ${postBbcodeClose}`;

@@ -37,9 +37,9 @@ jobs:
               env:
                   CSS_FILE_NAME: .stylelintrc.yml
                   DEFAULT_BRANCH: master
-                  FILTER_REGEX_EXCLUDE: .*node_modules.*
+                  FILTER_REGEX_EXCLUDE: .*node_modules.*|.*dist\/.+.css
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  LINTER_RULES_PATH: ./
+                  LINTER_RULES_PATH: tools
                   VALIDATE_JAVASCRIPT_STANDARD: false
 
     prettier:
@@ -67,4 +67,4 @@ jobs:
               run: npm install
 
             - name: Prettier check
-              run: npm run-script prettier-check
+              run: npm run-script prettier:check

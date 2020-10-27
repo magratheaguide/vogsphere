@@ -1,6 +1,6 @@
 {
     "alt-require": true,
-    "attr-lowercase": true,
+    "attr-lowercase": ["clipPathUnits", "viewBox"],
     "attr-no-duplication": true,
     "attr-value-double-quotes": true,
     "empty-tag-not-self-closed": true,
