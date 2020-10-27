@@ -2,9 +2,9 @@
 
 ## Quick Tips
 
-1. Look for comments that say `TODO`. These are things that you need to address when using Vogsphere on your site.
-1. When you're making modifications, if clicking the button in the form doesn't seem to be doing anything, be sure to check [the console in your browser's dev tools (link is for Firefox)](https://developer.mozilla.org/en-US/docs/Tools/Web_Console/Opening_the_Web_Console) to see if the script is spitting out any errors.
-1. If you haven't already read the [background info](https://github.com/rp-magrathea/vogsphere/wiki/Getting-Started#background) on the [[Getting Started wiki page]](Getting Started), do so now. It provides helpful context for the way things are processed in this script.
+1.  Look for comments that say `TODO`. These are things that you need to address when using Vogsphere on your site.
+1.  When you're making modifications, if clicking the button in the form doesn't seem to be doing anything, be sure to check [the console in your browser's dev tools (link is for Firefox)](https://developer.mozilla.org/en-US/docs/Tools/Web_Console/Opening_the_Web_Console) to see if the script is spitting out any errors.
+1.  If you haven't already read the [background info](https://github.com/rp-magrathea/vogsphere/wiki/Getting-Started#background) on the [[Getting Started wiki page]](Getting Started), do so now. It provides helpful context for the way things are processed in this script.
 
 ## The Details
 
