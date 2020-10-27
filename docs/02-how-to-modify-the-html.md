@@ -18,8 +18,8 @@ These two lines tell Vogsphere where to find the CSS and the JavaScript it uses.
 
 More information about `defer`:
 
--   https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript#Script_loading_strategies
--   https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
+-   [MDN: Script Loading Strategies](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript#Script_loading_strategies)
+-   [MDN: The `<script>` Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script)
 
 ```html
 <form id="js-vogsphere__form" class="magrathea-tool vogsphere"></form>
