@@ -9,7 +9,7 @@ Purpose:
 Convert member-provided answers from the associated form into the code admins need to update the various claims lists.
 
 How To Guide:
-https://github.com/rp-magrathea/vogsphere/wiki/Getting-Started
+https://github.com/rp-magrathea/vogsphere/docs/01-getting-started.md
 ==========
 */
 (function () {
