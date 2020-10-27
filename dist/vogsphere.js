@@ -33,15 +33,20 @@ https://github.com/rp-magrathea/vogsphere/docs/01-getting-started.md
     const leftBracket = "&#91;";
     const rightBracket = "&#93;";
 
+    // returns [tag]
     function openDohtml(tag) {
         return `${leftBracket}${tag}${rightBracket}`;
-    } // returns [tag]
+    }
+
+    // returns [tag=param]
     function openEqualsDohtml(tag, param) {
         return `${leftBracket}${tag}="${param}"${rightBracket}`;
-    } // returns [tag=param]
+    }
+
+    // returns [/tag]
     function closeDohtml(tag) {
         return `${leftBracket}/${tag}${rightBracket}`;
-    } // returns [/tag]
+    }
 
     const postBbcodeName = "pathfinder"; // TODO: should be the name of your site's default bbcode for posting
 
@@ -51,9 +56,12 @@ https://github.com/rp-magrathea/vogsphere/docs/01-getting-started.md
     const codeBbcodeOpen = openDohtml("code");
     const codeBbcodeClose = closeDohtml("code");
 
+    // returns [b]content[/b]
     function formatBold(content) {
         return `${openDohtml("b")}${content}${closeDohtml("b")}`;
     }
+
+    // returns [url=address]address[/url]
     function formatUrl(address) {
         return `${openEqualsDohtml("url", `${address}`)}${address}${closeDohtml(
             "url"
