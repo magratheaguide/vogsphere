@@ -2,13 +2,13 @@
 
 ## High Level Overview
 
-1. [Fork this repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) to have your own copy to work with
-1. [Modify the HTML](docs/02-how-to-modify-the-html.md) to ask for the specific fields you need
-1. Toss the CSS. Or modify it. Whatever makes it easiest to style the form to match your site
-1. [Modify the JavaScript](docs/03-how-to-modify-the-javascript.md) to build HTML customized to your site's claims
-1. Host the modified JS file. Recommendation: Upload it to your site's ACP using [the file manager](https://jcink.com/main/wiki/jfb-filemanager)
-1. Update the `<script>` link in the HTML to point to the hosted JS file
-1. Add the modified HTML to your site as the content of a post
+1.  [Fork this repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo) to have your own copy to work with
+1.  [Modify the HTML](docs/02-how-to-modify-the-html.md) to ask for the specific fields you need
+1.  Toss the CSS. Or modify it. Whatever makes it easiest to style the form to match your site
+1.  [Modify the JavaScript](docs/03-how-to-modify-the-javascript.md) to build HTML customized to your site's claims
+1.  Host the modified JS file. Recommendation: Upload it to your site's ACP using [the file manager](https://jcink.com/main/wiki/jfb-filemanager)
+1.  Update the `<script>` link in the HTML to point to the hosted JS file
+1.  Add the modified HTML to your site as the content of a post
 
 ## Background
 
@@ -18,5 +18,5 @@ On The Breach, we used a profile application, and had members let us know their 
 
 ## Next Steps
 
-1. [Modify the HTML](docs/02-how-to-modify-the-html.md)
-1. [Modify the JavaScript](docs/03-how-to-modify-the-javascript.md)
+1.  [Modify the HTML](docs/02-how-to-modify-the-html.md)
+1.  [Modify the JavaScript](docs/03-how-to-modify-the-javascript.md)
