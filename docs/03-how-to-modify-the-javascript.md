@@ -285,3 +285,7 @@ runBtn.addEventListener("click", generateClaimPost, false);
 Last but not least, we create the `generateClaim` function, which runs everything else, and attach it to the button in the form. This is what actually makes our form do something when the button is clicked. You probably won't need to make any modifications here.
 
 And that's a wrap. If you get stuck or have any questions, feel free to give a shout via an [issue on this repo](https://github.com/rp-magrathea/vogsphere/issues) (or give the exisiting issues a search for other folks who've had the same question!).
+
+## Next Steps
+
+1.  [Modify the HTML](02-how-to-modify-the-html.md)

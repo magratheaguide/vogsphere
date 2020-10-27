@@ -168,3 +168,7 @@ To get the demo version of Vogsphere to work, we use the standard method for cre
 This method represents a non-compliant way of using the `id` attribute, since it's very possible and realistic to have multiple `[code]` blocks on the same page. Therefore, to make sure that Vogsphere's JavaScript grabs the correct code block to output its results to, Vogsphere specifically looks for an ID that _will_ be unique in the page: `js-vogsphere__result`.
 
 Vogsphere can handle both the standard `<pre><code>` method and Jcink's doHTML `[code]` means of displaying code blocks. You need only follow the `<!-- TODO -->` comments in the Vogsphere HTML and JavaScript files to make your preferred method work.
+
+## Next Steps
+
+1.  [Modify the JavaScript](03-how-to-modify-the-javascript.md)
