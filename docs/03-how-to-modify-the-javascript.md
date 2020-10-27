@@ -133,7 +133,7 @@ class claimPost {
 
 Now to decide how to structure the post containing the codes so that it's easy for the site's staff to read and work with. This class looks a bit long for what it does, but really boils down to the following template:
 
-```
+```bbcode
 [post]
 Face claim:
 [code] face claim code here [/code]
