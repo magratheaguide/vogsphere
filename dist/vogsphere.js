@@ -25,6 +25,8 @@ https://github.com/rp-magrathea/vogsphere/docs/01-getting-started.md
 
     const formId = runBtn.getAttribute("form");
     const form = document.getElementById(formId);
+    const elements = form.elements;
+    const answers = new FormData(form);
 
     const newline = "\n";
 
@@ -84,23 +86,7 @@ https://github.com/rp-magrathea/vogsphere/docs/01-getting-started.md
         ],
         bool: ["isLabLead", "isNewLab", "isRequested"],
     };
-    let input = {};
     let errors = [];
-
-    // how text fields are processed
-    class textInput {
-        constructor(name) {
-            this.value = form.elements[name].value;
-            this.required = form.elements[name].required;
-        }
-    }
-
-    // how boolean fields are processed
-    class boolInput {
-        constructor(name) {
-            this.value = form.elements[name].value === "true";
-        }
-    }
 
     // TODO: update/create classes to match the actual claim codes needed for the site
     class faceClaim {
@@ -227,7 +213,7 @@ ${postBbcodeClose}`;
         errors = [];
     }
 
-    function getInput() {
+    function getAnswers() {
         for (const type in expectedFormFields) {
             expectedFormFields[type].forEach((fieldName) => {
                 if (!isInForm(fieldName)) {
@@ -237,10 +223,11 @@ ${postBbcodeClose}`;
                 } else {
                     switch (type) {
                         case "text":
-                            input[fieldName] = new textInput(fieldName);
                             break;
                         case "bool":
-                            input[fieldName] = new boolInput(fieldName);
+                            if (answers.has(fieldName)) {
+                                answers.set(fieldName, answers.get(fieldName) === "true");
+                            }
                             break;
                         default:
                             errors.push(
@@ -253,19 +240,20 @@ ${postBbcodeClose}`;
         }
     }
 
-    function validateInput() {
-        // check that required input is present
-        for (const x in input) {
-            if (input[x].required && !input[x].value) {
-                errors.push(`ERROR: Missing ${x}`);
+    function validateAnswers() {
+        // check for basic input errors
+        for (let i = 0; i < elements.length; i++) {
+            if (!elements[i].validity.valid) {
+                // FIXME: showError();
+                console.log("FIXME: write showError()");
             }
         }
 
         // check that information about requester or request location is provided for requested characters
         if (
-            input.isRequested.value &&
-            !input.requester.value &&
-            !input.requestLocation.value
+            answers.get("isRequested") &&
+            !answers.has("requester") &&
+            !answers.has("requestLocation")
         ) {
             errors.push(
                 "ERROR: Requested character, need requester name or request location"
@@ -274,19 +262,14 @@ ${postBbcodeClose}`;
 
         // TODO: check for context-sensitive errors (e.g. if member group is A, need to also have provided B)
         if (
-            input.memberGroup.value == "scientist" &&
-            input.isNewLab.value &&
-            !input.labDescription.value
+            answers.get("memberGroup") == "scientist" &&
+            answers.get("isNewLab") &&
+            !answers.get("labDescription")
         ) {
             errors.push("ERROR: Missing lab description");
         }
 
-        //Check for selection on Member group
-        if (!input.memberGroup.value) {
-            errors.push("ERROR: Missing Member group selection");
-        }
-
-        if (input.memberGroup.value == "scientist" && !input.labName.value) {
+        if (answers.get("memberGroup") == "scientist" && !answers.get("labName")) {
             errors.push("ERROR: Missing name of lab");
         }
     }
@@ -294,23 +277,25 @@ ${postBbcodeClose}`;
     // TODO: list all the different claims you need and the pieces they need to be filled in
     function fillInClaims() {
         let completeFaceClaim = new faceClaim(
-            input.characterName.value,
-            input.faceClaim.value,
-            input.memberGroup.value,
-            input.profileUrl.value,
-            input.writerAlias.value
+            answers.get("characterName"),
+            answers.get("faceClaim"),
+            answers.get("memberGroup"),
+            answers.get("profileUrl"),
+            answers.get("writerAlias")
         );
+
         let completeOccupationClaim = new occupationClaim(
-            input.characterName.value,
-            input.memberGroup.value,
-            input.occupation.value,
-            input.profileUrl.value
+            answers.get("characterName"),
+            answers.get("memberGroup"),
+            answers.get("occupation"),
+            answers.get("profileUrl")
         );
+
         // note that the labClaim needs to be handed the occupationClaim
         let completeLabClaim = new labClaim(
-            input.isLabLead.value,
-            input.labName.value,
-            input.labDescription.value,
+            answers.get("isLabLead"),
+            answers.get("labName"),
+            answers.get("labDescription"),
             completeOccupationClaim
         );
 
@@ -328,14 +313,14 @@ ${postBbcodeClose}`;
             claims.labClaim,
             claims.occupationClaim,
 
-            input.labName.value,
-            input.memberGroup.value,
-            input.requester.value,
-            input.requestLocation.value,
+            answers.get("labName"),
+            answers.get("memberGroup"),
+            answers.get("requester"),
+            answers.get("requestLocation"),
 
-            input.isLabLead.value,
-            input.isNewLab.value,
-            input.isRequested.value
+            answers.get("isLabLead"),
+            answers.get("isNewLab"),
+            answers.get("isRequested")
         );
 
         return post.content;
@@ -347,9 +332,9 @@ ${postBbcodeClose}`;
 
         resetGenerator();
 
-        getInput();
+        getAnswers();
 
-        validateInput();
+        validateAnswers();
 
         // stop if input errors were found
         if (errors.length > 0) {
@@ -363,6 +348,7 @@ ${postBbcodeClose}`;
 
         post = compileClaimPost(claims);
 
+        // FIXME: Does focus need to be changed/set here?
         resultBox.textContent = post;
         return;
     }
