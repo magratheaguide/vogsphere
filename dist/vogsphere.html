@@ -4,8 +4,8 @@
 
 <!-- A helpful resource: https://developer.mozilla.org/en-US/docs/Learn/Forms/How_to_structure_a_web_form -->
 
-<form id="js-vogsphere__form" class="magrathea-tool vogsphere">
-    <h2>Vogsphere, the Claim Code Generator</h2>
+<form aria-labelledby="vogsphere__form-title" id="js-vogsphere__form" class="magrathea-tool vogsphere">
+    <h2 id="vogsphere__form-title">Vogsphere, the Claim Code Generator</h2>
     <p>
         You can generate the code you need for claims using the following form.
         Copy the result and post it as is, no changes required.
@@ -262,14 +262,12 @@
         </div>
     </section>
 
-    <section>
-        <button id="js-vogsphere__run" form="js-vogsphere__form" type="submit">
-            Generate Code
-        </button>
-    </section>
+    <button id="js-vogsphere__run" form="js-vogsphere__form" type="submit">
+        Generate Code
+    </button>
 
-    <section id="js-vogsphere__result-parent">
-        <h3>Result</h3>
+    <output aria-labelledby="vogsphere__result-label" form="js-vogsphere__form" id="js-vogsphere__result-parent">
+        <h3 id="vogsphere__result-label">Result</h3>
 
         <!-- TODO: demo only, remove starting here... -->
         <pre><code>Claim code will be shown here.</code></pre>
@@ -280,5 +278,5 @@
         [code]
         [/code]
         [dohtml] -->
-    </section>
+    </output>
 </form>
