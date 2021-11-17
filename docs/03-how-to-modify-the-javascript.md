@@ -22,7 +22,6 @@ The first thing you'll notice about the JavaScript is that it's all wrapped in a
 
 ```javascript
 "use strict";
-
 ```
 
 This line opts all Vogsphere JavaScript into [strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode), which (among other things) tells JavaScript to yell at us instead of hemming and hawing over certain mistakes, helping us detect some problems more easily.
