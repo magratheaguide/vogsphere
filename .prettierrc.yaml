@@ -1,5 +1,3 @@
 ---
-# .prettierrc
 quoteProps: consistent
-semi: true
 tabWidth: 4

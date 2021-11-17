@@ -1,16 +1,12 @@
 # Vogsphere, the Claim Code Generator
 
-![Maintenance](https://img.shields.io/maintenance/yes/2020) [![GitHub license](https://img.shields.io/github/license/magratheaguide/vogsphere)](https://github.com/magratheaguide/vogsphere/blob/master/LICENSE)
-
 ## What is it?
 
 Frequently on forum roleplaying sites, members are asked to copy, modify, and then post codes needed to fill out sitewide claims lists. This process is highly error prone, and asks members who may not be familiar with code to make code modifications. With this tool, members can instead fill out a form, click a button, and be given exactly the claims code they need to post, no changes or code modifications needed.
 
-A [demo version of the generator](https://magrathea.guide/vogsphere/dist/vogsphere.html) is available to play with via this repo.
+A [demo version of the generator](https://magrathea.guide/vogsphere/dist/vogsphere.html) is available to play with via this repository.
 
-**[Pull requests](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request) are welcome** if you have ideas for improvements to the tool's quality or usability that you'd like to share.
-
-Found a bug? Got an idea for a new feature? Have a question? Please feel free to submit any and all of these as [issues in this repo](https://github.com/magratheaguide/vogsphere/issues).
+Found a bug? Got an idea for a new feature? **[Contributions are welcome](https://github.com/magratheaguide/vogsphere/contribute)**!
 
 ## What's included?
 
@@ -25,7 +21,7 @@ Check [the docs](docs/) for instructions!
 
 ## This looks kinda familiar...
 
-This tool was originally thought up and created by [Daine](https://daine.dev) for [The Breach](https://breached.jcink.net/), where she was an admin. The version provided here has been completely revamped to modernize and improve on the original, and to generalize and document the tool so it can be more easily used as a resource on other sites.
+This tool was originally thought up and created by [Daine](https://thewildmage.dev) for [The Breach](https://breached.jcink.net/), where she was an admin. The version provided here has been completely revamped to modernize and improve on the original, and to generalize and document the tool so it can be more easily used as a resource on other sites.
 
 ## Some Other Helpful Resources
 
@@ -35,4 +31,4 @@ This tool was originally thought up and created by [Daine](https://daine.dev) fo
 
 ## The License
 
-As you'll see from [the included license](LICENSE), everything in this repository is free to use however you wish without any restrictions or stipulations. You don’t even have to give credit (though credit is both always appreciated and a way to help others find these resources too!).
+Be sure to check [the license](LICENSE.md) for usage terms!
