@@ -3,13 +3,13 @@
 VOGSPHERE
 The Claim Code Generator
 A Magrathea project
-https://github.com/rp-magrathea/vogsphere
+https://github.com/magratheaguide/vogsphere
 -----
 Purpose:
 Convert member-provided answers from the associated form into the code admins need to update the various claims lists.
 
 How To Guide:
-https://github.com/rp-magrathea/vogsphere/docs/01-getting-started.md
+https://github.com/magratheaguide/vogsphere/docs/01-getting-started.md
 ==========
 */
 (function () {
