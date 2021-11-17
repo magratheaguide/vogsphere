@@ -1,6 +1,6 @@
 {
     "author": "Daine (https://daine.dev)",
-    "bugs": "https://github.com/rp-magrathea/vogsphere/issues",
+    "bugs": "https://github.com/magratheaguide/vogsphere/issues",
     "description": "For forum RPG sites: Enable members to fill out claims without editing code",
     "devDependencies": {
         "@rp-magrathea/stylelint-alphabetical-clockwise-order": "github:rp-magrathea/stylelint-alphabetical-clockwise-order#semver:^1.0.0",
@@ -17,7 +17,7 @@
         "stylelint-no-unsupported-browser-features": "^4.1.3",
         "stylelint-order": "^4.1.0"
     },
-    "homepage": "https://github.com/rp-magrathea/vogsphere#readme",
+    "homepage": "https://github.com/magratheaguide/vogsphere#readme",
     "keywords": [
         "forum",
         "forum-rpg",
@@ -27,8 +27,8 @@
         "writing"
     ],
     "license": "Unlicense",
-    "name": "@rp-magrathea/vogsphere",
-    "repository": "github:rp-magrathea/vogsphere",
+    "name": "@magratheaguide/vogsphere",
+    "repository": "github:magratheaguide/vogsphere",
     "scripts": {
         "build": "npm run-script prettier:write && npm run-script postcss:run",
         "build-lint": "npm run-script lint && npm run-script build",
