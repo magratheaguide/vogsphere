@@ -4,7 +4,7 @@
 
 Frequently on forum roleplaying sites, members are asked to copy, modify, and then post codes needed to fill out sitewide claims lists. This process is highly error prone, and asks members who may not be familiar with code to make code modifications. With this tool, members can instead fill out a form, click a button, and be given exactly the claims code they need to post, no changes or code modifications needed.
 
-A [demo version of the generator](https://magrathea.guide/vogsphere/dist/vogsphere.html) is available to play with via this repo.
+A [demo version of the generator](https://magrathea.guide/vogsphere/dist/vogsphere.html) is available to play with via this repository.
 
 Found a bug? Got an idea for a new feature? **[Contributions are welcome](https://github.com/magratheaguide/vogsphere/contribute)**!
 
