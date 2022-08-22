@@ -200,7 +200,7 @@ if (
     !input.requestLocation.value
 ) {
     errors.push(
-        "ERROR: Requested character, need requester name or request location"
+        "ERROR: Requested character, need requester name or request location",
     );
 }
 ```
@@ -265,7 +265,7 @@ function generateClaim() {
     // stop if input errors were found
     if (errors.length > 0) {
         errors.forEach(
-            (element) => (resultBox.textContent += element + newline)
+            (element) => (resultBox.textContent += element + newline),
         );
         return;
     }
