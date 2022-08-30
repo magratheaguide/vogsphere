@@ -56,7 +56,7 @@ https://github.com/magratheaguide/vogsphere/docs/01-getting-started.md
     }
     function formatUrl(address) {
         return `${openEqualsDohtml("url", `${address}`)}${address}${closeDohtml(
-            "url",
+            "url"
         )}`;
     }
 
@@ -101,7 +101,7 @@ https://github.com/magratheaguide/vogsphere/docs/01-getting-started.md
             faceClaim,
             memberGroup,
             profileUrl,
-            writerAlias,
+            writerAlias
         ) {
             this.code = `<div class="claim-row">
     <span class="detail-alitus"><b>${faceClaim}</b></span> as
@@ -166,7 +166,7 @@ ${isLabLead ? "" : occupationClaim.code}`;
 
             isLabLead,
             isNewLab,
-            isRequested,
+            isRequested
         ) {
             // prettier-ignore
             this.content = `${postBbcodeOpen}
@@ -224,7 +224,7 @@ ${postBbcodeClose}`;
             expectedFormFields[type].forEach((fieldName) => {
                 if (!isInForm(fieldName)) {
                     errors.push(
-                        `ERROR: Could not find field with name "${fieldName}" in form. Contact admin`,
+                        `ERROR: Could not find field with name "${fieldName}" in form. Contact admin`
                     );
                 } else {
                     switch (type) {
@@ -236,7 +236,7 @@ ${postBbcodeClose}`;
                             break;
                         default:
                             errors.push(
-                                `ERROR: Form field type "${type}" is unsupported. Contact admin`,
+                                `ERROR: Form field type "${type}" is unsupported. Contact admin`
                             );
                             break;
                     }
@@ -260,7 +260,7 @@ ${postBbcodeClose}`;
             !input.requestLocation.value
         ) {
             errors.push(
-                "ERROR: Requested character, need requester name or request location",
+                "ERROR: Requested character, need requester name or request location"
             );
         }
 
@@ -290,20 +290,20 @@ ${postBbcodeClose}`;
             input.faceClaim.value,
             input.memberGroup.value,
             input.profileUrl.value,
-            input.writerAlias.value,
+            input.writerAlias.value
         );
         let completeOccupationClaim = new occupationClaim(
             input.characterName.value,
             input.memberGroup.value,
             input.occupation.value,
-            input.profileUrl.value,
+            input.profileUrl.value
         );
         // note that the labClaim needs to be handed the occupationClaim
         let completeLabClaim = new labClaim(
             input.isLabLead.value,
             input.labName.value,
             input.labDescription.value,
-            completeOccupationClaim,
+            completeOccupationClaim
         );
 
         return {
@@ -327,7 +327,7 @@ ${postBbcodeClose}`;
 
             input.isLabLead.value,
             input.isNewLab.value,
-            input.isRequested.value,
+            input.isRequested.value
         );
 
         return post.content;
@@ -346,7 +346,7 @@ ${postBbcodeClose}`;
         // stop if input errors were found
         if (errors.length > 0) {
             errors.forEach(
-                (element) => (resultBox.textContent += element + newline),
+                (element) => (resultBox.textContent += element + newline)
             );
             return;
         }
