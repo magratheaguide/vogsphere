@@ -121,8 +121,8 @@ Please note that, on The Breach, most characters just needed to be added to the 
 
 A couple other things to watch out for here:
 
--   Template literals preserve _all_ whitespace (e.g. spaces and line breaks), hence the weird indentation. It's a lot easier to just get your claim code into this script, get it working, and then tweak the formatting
--   [Template literals can be nested to create conditional branching](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Nesting_templates). This works in conjuction with the [ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator). This lets us do things like, "If this character is the lead scientist in a new lab, put them in the lead section, otherwise put them in the general staff section"
+- Template literals preserve _all_ whitespace (e.g. spaces and line breaks), hence the weird indentation. It's a lot easier to just get your claim code into this script, get it working, and then tweak the formatting
+- [Template literals can be nested to create conditional branching](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Nesting_templates). This works in conjuction with the [ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator). This lets us do things like, "If this character is the lead scientist in a new lab, put them in the lead section, otherwise put them in the general staff section"
 
 ```javascript
 class claimPost {
@@ -200,7 +200,7 @@ if (
     !input.requestLocation.value
 ) {
     errors.push(
-        "ERROR: Requested character, need requester name or request location"
+        "ERROR: Requested character, need requester name or request location",
     );
 }
 ```
@@ -224,8 +224,8 @@ if (input.memberGroup.value == "scientist" && !input.labName.value) {
 
 The last piece of the `validateInput` function definitely won't make sense without context. The Breach was set on a ship in space, wherein some characters worked as scientists in the ship's labs. Our occupation claim listed a couple of labs (with short descriptive blurbs), but members were invited to think up additional labs that might be on board. These were added to the occupation claim when the new character was accepted. Therefore, our claim codes needed to consider the following conditions:
 
--   If the character is in the Scientist member group, then we need the name of the lab in which they work
--   If the lab isn't already in the occupation claim, then we need a blurb describing it for the occupation claim
+- If the character is in the Scientist member group, then we need the name of the lab in which they work
+- If the lab isn't already in the occupation claim, then we need a blurb describing it for the occupation claim
 
 The above code snippet checks these particular conditions and most likely won't pertain to your site without some modification. It's left in to show how this type of condition checking works within Vogsphere using a real world case.
 
@@ -265,7 +265,7 @@ function generateClaim() {
     // stop if input errors were found
     if (errors.length > 0) {
         errors.forEach(
-            (element) => (resultBox.textContent += element + newline)
+            (element) => (resultBox.textContent += element + newline),
         );
         return;
     }
