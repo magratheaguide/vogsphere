@@ -10,10 +10,10 @@ Found a bug? Got an idea for a new feature? **[Contributions are welcome](https:
 
 ## What's included?
 
--   [`dist/vogsphere.html`](dist/vogsphere.html) (required) is the form members will interact with
--   [`dist/vogsphere.js`](dist/vogsphere.js) (required) constructs the claims HTML when members submit the form
--   [`dist/vogsphere.css`](dist/vogsphere.css) (optional) provides bare bones styling for the demo version (and can be built upon for actual use)
--   And the rest is related to keeping this project tidy and consistent and not needed for using this tool on any RP site.
+- [`dist/vogsphere.html`](dist/vogsphere.html) (required) is the form members will interact with
+- [`dist/vogsphere.js`](dist/vogsphere.js) (required) constructs the claims HTML when members submit the form
+- [`dist/vogsphere.css`](dist/vogsphere.css) (optional) provides bare bones styling for the demo version (and can be built upon for actual use)
+- And the rest is related to keeping this project tidy and consistent and not needed for using this tool on any RP site.
 
 ## How do I use this for my site?
 
@@ -25,9 +25,9 @@ This tool was originally thought up and created by [Daine](https://thewildmage.d
 
 ## Some Other Helpful Resources
 
--   [HTML: A good basis for accessibility](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML)
--   [Your First Form](https://developer.mozilla.org/en-US/docs/Learn/Forms/Your_first_form)
--   [How to Structure a Web Form](https://developer.mozilla.org/en-US/docs/Learn/Forms/How_to_structure_a_web_form)
+- [HTML: A good basis for accessibility](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML)
+- [Your First Form](https://developer.mozilla.org/en-US/docs/Learn/Forms/Your_first_form)
+- [How to Structure a Web Form](https://developer.mozilla.org/en-US/docs/Learn/Forms/How_to_structure_a_web_form)
 
 ## The License
 
